@@ -1,0 +1,6 @@
+{
+  "name": "DevQuest",
+  "description": "A gamified developer quiz app testing knowledge across Front-end, Back-end, Database, and System Design.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
