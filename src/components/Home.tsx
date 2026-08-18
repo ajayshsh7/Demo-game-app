@@ -76,17 +76,17 @@ export const Home: React.FC<HomeProps> = ({ progress, onSelectCategory }) => {
           <h1 className='text-4xl font-black tracking-tighter text-white uppercase italic'>
             DevQuest<span className='text-indigo-500'>.</span>
           </h1>
-          <p className='text-neutral-500 text-sm font-mono mt-1 uppercase tracking-widest'>Level 42 • Senior Architect</p>
+          <p className='text-neutral-500 text-sm font-mono mt-1 uppercase tracking-widest'>Game for developers</p>
         </div>
         <div className='flex gap-12'>
-          <div className='text-right'>
+          {/* <div className='text-right'>
             <p className='text-neutral-500 text-[10px] uppercase tracking-widest mb-1'>Global XP</p>
             <p className='text-2xl font-light tracking-tight'>12,450 <span className='text-xs text-indigo-400'>pts</span></p>
-          </div>
-          <div className='text-right'>
+          </div> */}
+          {/* <div className='text-right'>
             <p className='text-neutral-500 text-[10px] uppercase tracking-widest mb-1'>Current Streak</p>
             <p className='text-2xl font-light tracking-tight'>14 <span className='text-xs text-orange-400'>days</span></p>
-          </div>
+          </div> */}
         </div>
       </header>
 
