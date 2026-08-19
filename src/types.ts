@@ -1,4 +1,4 @@
-export type CategoryId = 'frontend' | 'backend' | 'database' | 'system_design';
+export type CategoryId = 'frontend' | 'backend' | 'database' | 'system_design' | 'devops' | 'oop';
 
 export interface Category {
   id: CategoryId;

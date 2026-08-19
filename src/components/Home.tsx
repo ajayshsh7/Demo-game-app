@@ -1,7 +1,7 @@
 import React from 'react';
 import { Category, AppProgress, CategoryId } from '../types';
 import { CATEGORIES, getQuestionsForCategory } from '../data/questions';
-import { Layout, Server, Database, Network, Play, CheckCircle } from 'lucide-react';
+import { Layout, Server, Database, Network, GitBranch, Boxes } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface HomeProps {
@@ -14,6 +14,8 @@ const ICONS: Record<CategoryId, React.ElementType> = {
   backend: Server,
   database: Database,
   system_design: Network,
+  devops: GitBranch,
+  oop: Boxes,
 };
 
 const THEME: Record<CategoryId, {
@@ -65,6 +67,26 @@ const THEME: Record<CategoryId, {
     progressShadow: 'shadow-[0_0_12px_rgba(249,115,22,0.5)]',
     statsText: 'text-orange-400',
     buttonHover: 'hover:bg-orange-400',
+  },
+  devops: {
+    hover: 'hover:border-cyan-500/50',
+    iconBg: 'bg-cyan-500/10',
+    iconBorder: 'border-cyan-500/20',
+    iconText: 'text-cyan-400',
+    progressBg: 'bg-cyan-500',
+    progressShadow: 'shadow-[0_0_12px_rgba(6,182,212,0.5)]',
+    statsText: 'text-cyan-400',
+    buttonHover: 'hover:bg-cyan-400',
+  },
+  oop: {
+    hover: 'hover:border-pink-500/50',
+    iconBg: 'bg-pink-500/10',
+    iconBorder: 'border-pink-500/20',
+    iconText: 'text-pink-400',
+    progressBg: 'bg-pink-500',
+    progressShadow: 'shadow-[0_0_12px_rgba(236,72,153,0.5)]',
+    statsText: 'text-pink-400',
+    buttonHover: 'hover:bg-pink-400',
   }
 };
 
@@ -79,14 +101,6 @@ export const Home: React.FC<HomeProps> = ({ progress, onSelectCategory }) => {
           <p className='text-neutral-500 text-sm font-mono mt-1 uppercase tracking-widest'>Game for developers</p>
         </div>
         <div className='flex gap-12'>
-          {/* <div className='text-right'>
-            <p className='text-neutral-500 text-[10px] uppercase tracking-widest mb-1'>Global XP</p>
-            <p className='text-2xl font-light tracking-tight'>12,450 <span className='text-xs text-indigo-400'>pts</span></p>
-          </div> */}
-          {/* <div className='text-right'>
-            <p className='text-neutral-500 text-[10px] uppercase tracking-widest mb-1'>Current Streak</p>
-            <p className='text-2xl font-light tracking-tight'>14 <span className='text-xs text-orange-400'>days</span></p>
-          </div> */}
         </div>
       </header>
 

@@ -5,6 +5,8 @@ export const CATEGORIES: Category[] = [
   { id: 'backend', name: 'Back-end', description: 'Node.js, APIs, Architecture' },
   { id: 'database', name: 'Database', description: 'SQL, NoSQL, Optimization' },
   { id: 'system_design', name: 'System Design', description: 'Scalability, Patterns' },
+  { id: 'devops', name: 'DevOps', description: 'Master deployment, CI/CD, containers, cloud infrastructure, and automation.'},
+  {id: 'oop', name: 'Object Oriented Programming', description: 'Solve problems using encapsulation, inheritance, polymorphism, abstraction, and design principles.'},
 ];
 
 export const QUESTIONS: Record<string, Question[]> = {
@@ -1713,7 +1715,835 @@ export const QUESTIONS: Record<string, Question[]> = {
       text: 'Which property of a database transaction guarantees that either all operations complete successfully, or none do?',
       options: ['Atomicity', 'Consistency', 'Isolation', 'Durability'],
       correctOptionIndex: 0,
-    }
+    },
+    {
+  id: 'db-2',
+  categoryId: 'database',
+  text: 'A MySQL query becomes much slower after a users table grows from 50,000 to 10 million rows. The query frequently searches by email. What should you investigate first?',
+  options: [
+    'Changing all columns to TEXT',
+    'Adding an appropriate index on the email column',
+    'Removing the primary key',
+    'Storing emails in localStorage'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-3',
+  categoryId: 'database',
+  text: 'Your application stores customer information in one large table, and changing an address requires updating the same address in hundreds of rows. What database design problem is likely occurring?',
+  options: [
+    'Replication lag',
+    'Deadlock',
+    'Data redundancy caused by poor normalization',
+    'Vector similarity failure'
+  ],
+  correctOptionIndex: 2,
+},
+{
+  id: 'db-4',
+  categoryId: 'database',
+  text: 'A payment operation inserts an order, creates order items, and decreases product inventory. If the inventory update fails, what should happen to the other database changes?',
+  options: [
+    'They should remain partially completed',
+    'They should be rolled back as part of a transaction',
+    'They should be copied to localStorage',
+    'They should be moved into a graph database'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-5',
+  categoryId: 'database',
+  text: 'A MySQL application frequently joins orders with customers using customer_id, but the join becomes slow as the tables grow. What could improve the query?',
+  options: [
+    'Add an appropriate index on the columns used for the join',
+    'Convert every column to VARCHAR',
+    'Remove the customer_id relationship',
+    'Store the tables in browser localStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-6',
+  categoryId: 'database',
+  text: 'Your PostgreSQL application needs to store flexible profile metadata where different users may have different fields. Which PostgreSQL feature is particularly useful?',
+  options: [
+    'Only fixed-length CHAR columns',
+    'JSONB columns',
+    'HTML attributes',
+    'CSS variables'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-7',
+  categoryId: 'database',
+  text: 'A PostgreSQL query searches a large JSONB column repeatedly for a particular key and value. What can help improve this workload?',
+  options: [
+    'Remove all constraints',
+    'Store the JSON only in cookies',
+    'Use an appropriate JSONB index such as GIN',
+    'Convert the database to localStorage'
+  ],
+  correctOptionIndex: 2,
+},
+{
+  id: 'db-8',
+  categoryId: 'database',
+  text: 'Your application needs to guarantee that usernames are unique even when two users register at almost exactly the same time. Where should this rule primarily be enforced?',
+  options: [
+    'Only in the frontend',
+    'Only in localStorage',
+    'Only through a JavaScript if statement',
+    'With a database-level unique constraint'
+  ],
+  correctOptionIndex: 3,
+},
+{
+  id: 'db-9',
+  categoryId: 'database',
+  text: 'A developer checks whether an email exists before inserting a new user, but duplicate emails occasionally still appear during concurrent registrations. Why can this happen?',
+  options: [
+    'The browser cannot render SQL',
+    'The check and insert are separate operations without database-level concurrency protection',
+    'Indexes always create duplicates',
+    'MongoDB automatically duplicates every record'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-10',
+  categoryId: 'database',
+  text: 'Your MySQL application must execute several related updates where partial completion would corrupt financial data. Which approach is most appropriate?',
+  options: [
+    'Use a database transaction',
+    'Use localStorage as the source of truth',
+    'Execute every query without error handling',
+    'Replace SQL with CSS'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-11',
+  categoryId: 'database',
+  text: 'A database administrator notices that one query is scanning millions of rows even though an index exists. What should be investigated?',
+  options: [
+    'The React component tree',
+    'The CSS cascade',
+    'The query execution plan and whether the index is actually useful',
+    'The browser viewport size'
+  ],
+  correctOptionIndex: 2,
+},
+{
+  id: 'db-12',
+  categoryId: 'database',
+  text: 'A MySQL table contains millions of historical orders, but users usually search only recent orders. Which optimization could be considered for a very large workload?',
+  options: [
+    'Remove all timestamps',
+    'Consider partitioning based on an appropriate key such as date',
+    'Move all orders into browser cookies',
+    'Duplicate every order into every table'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-13',
+  categoryId: 'database',
+  text: 'Your PostgreSQL application frequently needs to return the newest 20 orders sorted by created_at. Which database change could help this query?',
+  options: [
+    'Add an appropriate index involving created_at',
+    'Remove created_at',
+    'Convert created_at to HTML',
+    'Store the newest orders only in sessionStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-14',
+  categoryId: 'database',
+  text: 'A team stores every customer order as a separate JSON document in MongoDB, including customer information that rarely changes. What problem could occur when the customer changes their name?',
+  options: [
+    'Every affected embedded copy may need to be updated',
+    'MongoDB automatically converts JSON into SQL',
+    'The database cannot store strings',
+    'Indexes stop working permanently'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-15',
+  categoryId: 'database',
+  text: 'Your MongoDB application frequently queries documents using a customerId field, but performance decreases as the collection grows. What should you consider?',
+  options: [
+    'Removing customerId',
+    'Adding an appropriate index on customerId',
+    'Moving customerId into CSS',
+    'Converting every document into a SQL table'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-16',
+  categoryId: 'database',
+  text: 'A MongoDB collection contains documents with different structures because older and newer application versions store different fields. What advantage of MongoDB helps in this situation?',
+  options: [
+    'Flexible document schemas can accommodate varying fields',
+    'MongoDB requires every document to have identical columns',
+    'MongoDB cannot store nested objects',
+    'MongoDB automatically normalizes every document'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-17',
+  categoryId: 'database',
+  text: 'A MongoDB document embeds thousands of comments inside a single post, and the document keeps growing. What should the developer reconsider?',
+  options: [
+    'Whether embedding is appropriate or whether comments should be stored separately',
+    'Whether CSS Grid should be used',
+    'Whether MongoDB should remove all indexes',
+    'Whether comments should be saved in cookies'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-18',
+  categoryId: 'database',
+  text: 'Your application needs atomic updates across multiple MongoDB documents. Which MongoDB capability can be considered?',
+  options: [
+    'Browser localStorage',
+    'MongoDB multi-document transactions',
+    'CSS transactions',
+    'HTTP caching'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-19',
+  categoryId: 'database',
+  text: 'A MongoDB query frequently filters documents by status and sorts them by createdAt. What could improve this query when the collection becomes large?',
+  options: [
+    'Use an appropriate compound index',
+    'Remove the status field',
+    'Store createdAt only in localStorage',
+    'Convert every document to XML'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-20',
+  categoryId: 'database',
+  text: 'Your MongoDB application needs to calculate totals by category from millions of documents. Which feature is designed for this kind of workload?',
+  options: [
+    'CSS selectors',
+    'MongoDB aggregation pipeline',
+    'Browser cookies',
+    'HTML forms'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-21',
+  categoryId: 'database',
+  text: 'A shopping cart is stored in localStorage, but the user opens the same account on another device and cannot see the cart. Why does this happen?',
+  options: [
+    'localStorage is generally local to the browser and origin rather than a server-side shared database',
+    'localStorage automatically deletes data every hour',
+    'SQL prevents synchronization',
+    'MongoDB blocks localStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-22',
+  categoryId: 'database',
+  text: 'A developer stores a user authentication token containing sensitive information in localStorage. What is the main security concern?',
+  options: [
+    'localStorage makes SQL queries slower',
+    'JavaScript running in the page can potentially access the stored token, increasing XSS-related risk',
+    'localStorage automatically encrypts the token',
+    'localStorage can only store images'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-23',
+  categoryId: 'database',
+  text: 'Your application stores a large amount of structured user data in localStorage and starts hitting browser storage limits. What should you consider?',
+  options: [
+    'Move persistent application data to an appropriate server-side database or storage system',
+    'Increase localStorage size using CSS',
+    'Store unlimited data in cookies',
+    'Duplicate the same data hundreds of times'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-24',
+  categoryId: 'database',
+  text: 'A user clears browser storage and all locally saved application preferences disappear. What does this demonstrate?',
+  options: [
+    'Browser storage should always replace server databases',
+    'localStorage is not a reliable replacement for server-side persistent data',
+    'PostgreSQL automatically deletes preferences',
+    'MongoDB requires browser storage'
+  ],
+  correctOptionIndex: 1,
+},
+{
+  id: 'db-25',
+  categoryId: 'database',
+  text: 'A web application stores a cached API response in localStorage and later displays outdated information after the server data changes. What problem is occurring?',
+  options: [
+    'Stale client-side data',
+    'Database normalization',
+    'SQL injection',
+    'Deadlock'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-26',
+  categoryId: 'database',
+  text: 'Your application needs to model relationships such as "Alice works with Bob", "Bob manages Carol", and "Carol belongs to Team X". Which database type is particularly suited to relationship-heavy queries?',
+  options: [
+    'Graph database',
+    'LocalStorage',
+    'Key-value browser storage only',
+    'Plain text files'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-27',
+  categoryId: 'database',
+  text: 'A social network needs to find friends-of-friends across many relationship levels. Why might a graph database be useful?',
+  options: [
+    'It is optimized for representing and traversing relationships between entities',
+    'It stores only CSS rules',
+    'It cannot represent relationships',
+    'It requires every relationship to be stored as a browser cookie'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-28',
+  categoryId: 'database',
+  text: 'A recommendation system needs to identify connections between users, products, interests, and communities. What graph database advantage can help?',
+  options: [
+    'Efficient traversal of connected entities and relationships',
+    'Automatic frontend rendering',
+    'Unlimited browser storage',
+    'Replacement of authentication'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-29',
+  categoryId: 'database',
+  text: 'A graph database query becomes slow because the application is traversing an extremely large and poorly constrained relationship network. What should be investigated?',
+  options: [
+    'Traversal strategy, indexes, relationship modeling, and query constraints',
+    'CSS specificity',
+    'HTML semantics',
+    'Browser font size'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-30',
+  categoryId: 'database',
+  text: 'Your application stores millions of product descriptions and wants to find products that are semantically similar rather than matching exact keywords. Which database technology is particularly useful?',
+  options: [
+    'Vector database',
+    'HTML database',
+    'CSS database',
+    'Cookie storage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-31',
+  categoryId: 'database',
+  text: 'A vector search system converts documents into numerical embeddings. What is the purpose of those embeddings?',
+  options: [
+    'Represent content in a numerical space where semantic similarity can be measured',
+    'Encrypt database passwords',
+    'Replace all database indexes',
+    'Store HTML styles'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-32',
+  categoryId: 'database',
+  text: 'A chatbot needs to retrieve the most semantically relevant documents before generating an answer. What database capability can help?',
+  options: [
+    'Vector similarity search',
+    'Only exact string comparison',
+    'CSS selectors',
+    'HTTP redirects'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-33',
+  categoryId: 'database',
+  text: 'A vector search returns many documents that are mathematically close but contain information from the wrong product category. What should the system consider?',
+  options: [
+    'Use metadata filtering or hybrid search alongside vector similarity',
+    'Delete all embeddings',
+    'Remove all product metadata',
+    'Use localStorage as the vector index'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-34',
+  categoryId: 'database',
+  text: 'A vector database contains embeddings generated using an old embedding model, while new documents use a different model. What problem can this cause?',
+  options: [
+    'Comparisons may become inconsistent because embeddings from incompatible models may not share the same representation space',
+    'SQL joins automatically become faster',
+    'MongoDB documents become relational',
+    'localStorage becomes encrypted'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-35',
+  categoryId: 'database',
+  text: 'A company wants users to search products using both exact filters such as price and semantic similarity such as "comfortable shoes". What approach is useful?',
+  options: [
+    'Combine metadata filtering with vector similarity search',
+    'Use only localStorage',
+    'Remove all product attributes',
+    'Use only exact string equality'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-36',
+  categoryId: 'database',
+  text: 'A SQL query selects every column from a large table even though the application needs only three fields. What improvement could reduce unnecessary work?',
+  options: [
+    'Select only the required columns',
+    'Always use SELECT *',
+    'Duplicate the table',
+    'Convert every column to JSON'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-37',
+  categoryId: 'database',
+  text: 'A developer builds a SQL query by directly concatenating user input into the query string. What security vulnerability should be considered?',
+  options: [
+    'SQL injection',
+    'Memory caching',
+    'Graph traversal',
+    'Vector drift'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-38',
+  categoryId: 'database',
+  text: 'What is a safer approach when application input needs to be included in a SQL query?',
+  options: [
+    'Parameterized queries or properly configured prepared statements',
+    'String concatenation with more quotes',
+    'Putting SQL inside CSS',
+    'Saving SQL commands in localStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-39',
+  categoryId: 'database',
+  text: 'A database breach exposes stored user passwords. The passwords were stored using a strong password hashing algorithm rather than plain text. Why is this safer?',
+  options: [
+    'The original passwords are not directly stored and are harder to recover from the hashes',
+    'Hashes can always be reversed instantly',
+    'Hashing makes passwords public',
+    'Hashing removes the need for authentication'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-40',
+  categoryId: 'database',
+  text: 'A database contains confidential customer information, but every application user can query every table. What design problem should be addressed?',
+  options: [
+    'Excessive database permissions and lack of least-privilege access',
+    'Too many CSS classes',
+    'Missing browser history',
+    'Incorrect HTML nesting'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-41',
+  categoryId: 'database',
+  text: 'A PostgreSQL application must ensure that an employee salary cannot become negative. Where is the strongest place to enforce this invariant?',
+  options: [
+    'Only with a frontend warning',
+    'Only in localStorage',
+    'With an appropriate database constraint such as CHECK',
+    'Only inside a CSS class'
+  ],
+  correctOptionIndex: 2,
+},
+{
+  id: 'db-42',
+  categoryId: 'database',
+  text: 'Your application deletes a customer record that is referenced by many orders. What database feature can help enforce the intended relationship behavior?',
+  options: [
+    'Foreign keys and appropriate referential actions',
+    'CSS inheritance',
+    'localStorage events',
+    'Vector embeddings'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-43',
+  categoryId: 'database',
+  text: 'An order references a customer_id that does not exist in the customers table. Which database mechanism can prevent this invalid relationship?',
+  options: [
+    'Foreign key constraint',
+    'Browser cache',
+    'CSS selector',
+    'Vector index'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-44',
+  categoryId: 'database',
+  text: 'Two transactions each hold a lock that the other transaction needs, and both remain waiting. What database problem is occurring?',
+  options: [
+    'Deadlock',
+    'Normalization',
+    'Replication',
+    'Sharding'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-45',
+  categoryId: 'database',
+  text: 'A production database experiences frequent deadlocks during high traffic. What is a sensible first step?',
+  options: [
+    'Investigate transaction order, locking behavior, indexes, and transaction duration',
+    'Disable all transactions',
+    'Move all data to localStorage',
+    'Remove every database constraint'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-46',
+  categoryId: 'database',
+  text: 'A reporting query reads data while another transaction is changing related records, producing inconsistent results. Which database concept should the team investigate?',
+  options: [
+    'Transaction isolation levels',
+    'CSS specificity',
+    'Browser routing',
+    'Vector dimensions'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-47',
+  categoryId: 'database',
+  text: 'A read-heavy application has one primary database receiving both writes and thousands of read queries. What architecture could reduce read pressure on the primary?',
+  options: [
+    'Read replicas',
+    'Browser cookies',
+    'Removing indexes',
+    'Storing every query in localStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-48',
+  categoryId: 'database',
+  text: 'Your application reads from a PostgreSQL replica immediately after writing to the primary and sometimes sees old data. What issue is this an example of?',
+  options: [
+    'Replication lag',
+    'SQL injection',
+    'Normalization',
+    'Schema migration'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-49',
+  categoryId: 'database',
+  text: 'A database contains 500 million records and one server can no longer handle the workload. The data can be distributed based on customer region. What scaling strategy could be considered?',
+  options: [
+    'Sharding',
+    'Removing primary keys',
+    'localStorage',
+    'CSS Grid'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-50',
+  categoryId: 'database',
+  text: 'A team adds indexes to nearly every column hoping to make all queries faster, but writes become significantly slower. Why can this happen?',
+  options: [
+    'Indexes require additional storage and maintenance during inserts, updates, and deletes',
+    'Indexes always delete rows',
+    'Indexes prevent all SELECT queries',
+    'Indexes only work in MongoDB'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-51',
+  categoryId: 'database',
+  text: 'A frequently updated MySQL table has several large indexes, and write performance is poor. What should the team consider?',
+  options: [
+    'Review whether every index is necessary and remove unused or redundant indexes',
+    'Add ten more indexes',
+    'Move all indexes to localStorage',
+    'Disable all primary keys'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-52',
+  categoryId: 'database',
+  text: 'A developer changes a production database schema manually without recording the change, and another environment later becomes inconsistent. What practice would help prevent this?',
+  options: [
+    'Version-controlled database migrations',
+    'Manual edits without documentation',
+    'Storing schemas in browser cookies',
+    'Deleting the development database'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-53',
+  categoryId: 'database',
+  text: 'A new database migration changes a column used by an older version of the application, causing deployment failures. What deployment strategy can reduce this risk?',
+  options: [
+    'Use backward-compatible or expand-and-contract migrations',
+    'Delete the old column before deploying the new code',
+    'Change the database without testing',
+    'Disable database constraints permanently'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-54',
+  categoryId: 'database',
+  text: 'Your production database is corrupted after an infrastructure failure. Backups exist, but the latest backup is three days old. What problem does this reveal?',
+  options: [
+    'The backup frequency and recovery-point objective may be insufficient',
+    'The database has too many primary keys',
+    'MongoDB cannot use backups',
+    'localStorage should have been used instead'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-55',
+  categoryId: 'database',
+  text: 'A company creates backups but has never tested restoring them. Why is this risky?',
+  options: [
+    'A backup may be unusable or incomplete when recovery is actually needed',
+    'Testing backups deletes all production data',
+    'Backups only work with MongoDB',
+    'Database backups cannot contain indexes'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-56',
+  categoryId: 'database',
+  text: 'A database stores millions of old logs that are almost never queried, but the primary tables are becoming difficult to manage. What strategy could help?',
+  options: [
+    'Archive or partition historical data according to the application requirements',
+    'Delete all logs immediately',
+    'Move logs into CSS',
+    'Duplicate every log in the primary table'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-57',
+  categoryId: 'database',
+  text: 'An application repeatedly fetches the same expensive database result for thousands of users. What can reduce database load when the data can tolerate some staleness?',
+  options: [
+    'Caching the result with an appropriate expiration or invalidation strategy',
+    'Removing the database index',
+    'Running the query more times',
+    'Saving all results permanently in the URL'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-58',
+  categoryId: 'database',
+  text: 'A cache contains an old product price after the database has been updated. What architectural problem does this represent?',
+  options: [
+    'Cache invalidation or stale cache data',
+    'Database normalization',
+    'Foreign key violation',
+    'Graph traversal'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-59',
+  categoryId: 'database',
+  text: 'An application needs to store a large number of loosely structured event records where fields may evolve over time. Which option may be more convenient than a highly rigid relational schema?',
+  options: [
+    'A document-oriented NoSQL database such as MongoDB',
+    'CSS variables',
+    'localStorage only',
+    'A database containing one column for every possible future field'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-60',
+  categoryId: 'database',
+  text: 'A financial application requires strict relationships, constraints, transactions, and consistent reporting across many related tables. Which database model is generally a strong fit?',
+  options: [
+    'Relational SQL database',
+    'localStorage',
+    'Only a graph database',
+    'Only a vector database'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-61',
+  categoryId: 'database',
+  text: 'A MongoDB application needs to update a large number of documents that match a specific condition. What is generally preferable to fetching every document into application memory first?',
+  options: [
+    'Use an appropriate database-side bulk update operation',
+    'Download every document into the browser',
+    'Update documents manually one at a time through the UI',
+    'Copy all documents into localStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-62',
+  categoryId: 'database',
+  text: 'A PostgreSQL application frequently searches for users by a case-insensitive email address. What should the team consider when designing the query and index?',
+  options: [
+    'Use an appropriate case-insensitive strategy and matching index expression or data representation',
+    'Remove all email indexes',
+    'Store emails as images',
+    'Use localStorage as the primary lookup database'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-63',
+  categoryId: 'database',
+  text: 'A SQL query joins five large tables and becomes extremely slow after new features are added. What is the most useful first debugging approach?',
+  options: [
+    'Inspect the query execution plan and identify expensive scans, joins, and missing indexes',
+    'Rewrite the frontend in React',
+    'Move the query into localStorage',
+    'Remove all WHERE clauses'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-64',
+  categoryId: 'database',
+  text: 'An application sends thousands of individual database queries to retrieve related records, causing high latency. What problem might this indicate?',
+  options: [
+    'An N+1 query pattern',
+    'CSS inheritance',
+    'Vector dimension mismatch',
+    'Browser cache poisoning'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-65',
+  categoryId: 'database',
+  text: 'A backend receives 1,000 product IDs and performs one database query for each ID. What could improve this design?',
+  options: [
+    'Fetch the required records using a batched query where appropriate',
+    'Make 10,000 queries instead',
+    'Store product IDs in CSS',
+    'Disable the database index'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-66',
+  categoryId: 'database',
+  text: 'A developer decides to store a user’s entire account record in localStorage because it is convenient. What is the biggest architectural concern?',
+  options: [
+    'Sensitive and authoritative user data should generally remain controlled by the server-side system of record',
+    'localStorage can only store numbers',
+    'localStorage automatically creates SQL indexes',
+    'Browser storage is always synchronized across devices'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-67',
+  categoryId: 'database',
+  text: 'A recommendation engine needs both relationships between users and semantic similarity between product descriptions. Which architecture could combine specialized database technologies?',
+  options: [
+    'Use a graph database for relationships and a vector database for semantic similarity',
+    'Use localStorage for all relationships',
+    'Use CSS for embeddings',
+    'Use only a relational table with no indexes'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-68',
+  categoryId: 'database',
+  text: 'A company experiences a database security breach. What should the team do first from a database security perspective?',
+  options: [
+    'Contain the incident, revoke compromised credentials, investigate access, and restore from trusted systems when necessary',
+    'Ignore the breach if the database is still running',
+    'Publish the database credentials',
+    'Disable all backups'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-69',
+  categoryId: 'database',
+  text: 'A production database contains personally identifiable information, but developers copy the full production database into their local machines for testing. What is a safer approach?',
+  options: [
+    'Use sanitized, anonymized, or synthetic test data with appropriate access controls',
+    'Give every developer production credentials',
+    'Copy the database more frequently',
+    'Store the production database in localStorage'
+  ],
+  correctOptionIndex: 0,
+},
+{
+  id: 'db-70',
+  categoryId: 'database',
+  text: 'Your application uses MySQL for transactions, MongoDB for flexible documents, PostgreSQL for relational workloads, localStorage for client preferences, a graph database for relationships, and a vector database for semantic search. Users report that the application is becoming slow. What should you do first?',
+  options: [
+    'Measure the system using database metrics, query plans, logs, tracing, and profiling to identify the actual bottleneck',
+    'Replace every database immediately',
+    'Add indexes to every column in every database',
+    'Move all databases into localStorage'
+  ],
+  correctOptionIndex: 0,
+},
   ],
   system_design: [
     {
@@ -1723,6 +2553,34 @@ export const QUESTIONS: Record<string, Question[]> = {
       options: ['Singleton', 'Circuit Breaker', 'Adapter', 'Observer'],
       correctOptionIndex: 1,
     }
+  ],
+  devops: [
+    {
+  id: 'devops-1',
+  categoryId: 'devops',
+  text: 'Your application works correctly on your local machine but fails after deployment because environment variables are missing. What is the best DevOps approach to prevent this problem?',
+  options: [
+    'Hardcode the environment variables directly into the application',
+    'Store configuration securely and inject environment variables through the deployment pipeline',
+    'Commit the production environment file to the Git repository',
+    'Rebuild the application manually every time it is deployed'
+  ],
+  correctOptionIndex: 1,
+},
+  ],
+  oop: [
+    {
+  id: 'oop-1',
+  categoryId: 'oop',
+  text: 'A payment system supports CreditCard, PayPal, and UPI payments. Each payment type implements its own processPayment() method. Your code should process any payment without checking which payment type it receives. Which OOP principle best solves this problem?',
+  options: [
+    'Encapsulation',
+    'Inheritance',
+    'Polymorphism',
+    'Composition'
+  ],
+  correctOptionIndex: 2,
+},
   ]
 };
 
