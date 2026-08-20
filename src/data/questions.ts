@@ -2552,7 +2552,535 @@ export const QUESTIONS: Record<string, Question[]> = {
       text: 'In a microservices architecture, what pattern is commonly used to prevent cascading failures?',
       options: ['Singleton', 'Circuit Breaker', 'Adapter', 'Observer'],
       correctOptionIndex: 1,
-    }
+    },
+    {
+    id: 'sd-2',
+    categoryId: 'system_design',
+    text: 'Your application runs on three servers, but one server failure makes the entire service unavailable. What architectural change would remove this single point of failure?',
+    options: [
+      'Store all application state on one dedicated server',
+      'Run multiple application instances behind a load balancer',
+      'Increase the memory available to the existing server',
+      'Move all requests through a single application instance'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-3',
+    categoryId: 'system_design',
+    text: 'A traffic spike causes requests to overwhelm your application servers. What component can distribute incoming requests across healthy instances?',
+    options: [
+      'Message queue',
+      'Database replica',
+      'Load balancer',
+      'Object storage'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-4',
+    categoryId: 'system_design',
+    text: 'Your application has millions of read requests but relatively few writes. Which strategy could improve database scalability?',
+    options: [
+      'Send every read operation to the primary database',
+      'Remove indexes to reduce database maintenance',
+      'Store every database record inside application memory',
+      'Use read replicas to distribute read-heavy traffic'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-5',
+    categoryId: 'system_design',
+    text: 'A popular product page receives thousands of identical requests every second. What would reduce repeated database work?',
+    options: [
+      'Cache frequently requested product data',
+      'Increase the number of database writes',
+      'Disable database connection pooling',
+      'Force every request to query the primary database'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-6',
+    categoryId: 'system_design',
+    text: 'Your cache becomes unavailable and the application immediately stops serving requests even though the database is healthy. What design would improve resilience?',
+    options: [
+      'Store the only copy of important data in the cache',
+      'Treat the cache as optional and fall back to the database',
+      'Make every request wait until the cache becomes available',
+      'Remove the database and rely entirely on cached responses'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-7',
+    categoryId: 'system_design',
+    text: 'An external payment service sometimes becomes unavailable, causing your requests to wait indefinitely. Which resilience technique should you introduce?',
+    options: [
+      'Increase request timeout values significantly',
+      'Retry every failed request without any limit',
+      'Use timeouts and a circuit breaker around the dependency',
+      'Create additional database tables for failed requests'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-8',
+    categoryId: 'system_design',
+    text: 'A service occasionally fails because of temporary network problems. What retry strategy is safer than immediately retrying every failure at once?',
+    options: [
+      'Retry continuously without waiting between attempts',
+      'Retry all requests simultaneously after every failure',
+      'Disable all retries even for temporary failures',
+      'Use bounded retries with exponential backoff and jitter'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-9',
+    categoryId: 'system_design',
+    text: 'Your order API sends emails, generates reports, and updates analytics before returning a response. How could you reduce user-facing latency?',
+    options: [
+      'Move non-critical work into asynchronous background jobs',
+      'Make every operation execute sequentially on the request thread',
+      'Increase the response payload to include processing information',
+      'Force the client to wait until every background task completes'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-10',
+    categoryId: 'system_design',
+    text: 'Several services need to react when an order is created without directly depending on each other. Which architecture fits this requirement?',
+    options: [
+      'Synchronous calls between every participating service',
+      'Event-driven communication through a message broker',
+      'A single database table containing every service operation',
+      'Direct browser communication between backend services'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-11',
+    categoryId: 'system_design',
+    text: 'Your image-processing service receives bursts of thousands of jobs and cannot process them immediately. What component can smooth the workload?',
+    options: [
+      'Load balancer',
+      'Read replica',
+      'Message queue',
+      'DNS resolver'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-12',
+    categoryId: 'system_design',
+    text: 'Multiple consumers process messages from a queue, but some messages are delivered more than once. What should consumers support?',
+    options: [
+      'Assume every message can only arrive once',
+      'Delete all failed messages immediately',
+      'Disable acknowledgements for faster processing',
+      'Make message processing idempotent'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-13',
+    categoryId: 'system_design',
+    text: 'Your application stores user sessions locally on each server, causing random logouts when requests reach different instances. What should change?',
+    options: [
+      'Use shared session storage or stateless authentication',
+      'Increase the number of cookies stored by each browser',
+      'Route every user permanently to one random server',
+      'Store sessions only inside each server process'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-14',
+    categoryId: 'system_design',
+    text: 'A service needs to handle unpredictable traffic while avoiding large numbers of permanently running servers. Which approach is suitable?',
+    options: [
+      'Use one powerful server regardless of traffic',
+      'Use automatic horizontal scaling based on demand',
+      'Increase database storage whenever traffic increases',
+      'Disable load balancing during low-traffic periods'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-15',
+    categoryId: 'system_design',
+    text: 'Your application needs to serve users from several continents with low latency. What infrastructure strategy would help most?',
+    options: [
+      'Keep every request routed to one central region',
+      'Increase the size of responses sent from the server',
+      'Deploy services closer to users across multiple regions',
+      'Store all static assets only on the primary database'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-16',
+    categoryId: 'system_design',
+    text: 'Users frequently download the same images and JavaScript files from your application. What can reduce latency and origin-server traffic?',
+    options: [
+      'Store all assets inside the relational database',
+      'Send larger versions of assets to reduce requests',
+      'Disable browser caching for frequently requested assets',
+      'Use a CDN to cache and serve static content'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-17',
+    categoryId: 'system_design',
+    text: 'Your database becomes a bottleneck because several services constantly query the same records. What should you investigate first?',
+    options: [
+      'Query patterns, indexes, caching, and connection usage',
+      'Adding more frontend components to reduce backend traffic',
+      'Removing database indexes to simplify database maintenance',
+      'Moving every database query into the browser'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-18',
+    categoryId: 'system_design',
+    text: 'A table has grown from thousands to billions of records, making queries increasingly expensive. Which technique can help divide the dataset?',
+    options: [
+      'Store every record inside one application process',
+      'Partition data according to an appropriate access pattern',
+      'Remove all indexes from the growing table',
+      'Duplicate every record across every application server'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-19',
+    categoryId: 'system_design',
+    text: 'A single database server cannot handle the write volume of your rapidly growing application. Which approach can distribute writes across database nodes?',
+    options: [
+      'Database replication used only for backups',
+      'HTTP caching applied to database requests',
+      'Database sharding using an appropriate partition key',
+      'Adding more read replicas without changing write routing'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-20',
+    categoryId: 'system_design',
+    text: 'Your sharded database performs poorly because many requests need data from multiple shards. What should you reconsider?',
+    options: [
+      'Increase the number of network hops between shards',
+      'Store every record on every shard',
+      'Remove all partition keys from the database',
+      'Choose a partition key aligned with common access patterns'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-21',
+    categoryId: 'system_design',
+    text: 'A system needs to remain available even if one availability zone fails. What deployment strategy provides better fault isolation?',
+    options: [
+      'Distribute application instances across multiple availability zones',
+      'Run every application instance inside one availability zone',
+      'Keep only one database server in the primary zone',
+      'Route all traffic through a single zone for simplicity'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-22',
+    categoryId: 'system_design',
+    text: 'Your application cannot tolerate losing recently written data if a database server fails. What should you prioritize?',
+    options: [
+      'Disable database replication to reduce write latency',
+      'Use durable replication and an appropriate backup strategy',
+      'Store recent writes only inside application memory',
+      'Increase API response sizes to preserve more information'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-23',
+    categoryId: 'system_design',
+    text: 'A service performs expensive calculations repeatedly for the same inputs. What architectural optimization could reduce unnecessary computation?',
+    options: [
+      'Execute every calculation again for every request',
+      'Move calculations into the frontend without measuring the impact',
+      'Cache computed results using suitable keys and expiration',
+      'Increase database write frequency for every calculation'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-24',
+    categoryId: 'system_design',
+    text: 'Users complain that search results are slow because the database performs expensive text matching across millions of records. What could improve this?',
+    options: [
+      'Perform full table scans for every search request',
+      'Send the entire dataset to the client before searching',
+      'Increase the size of every search response',
+      'Use a dedicated search engine with appropriate indexing'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-25',
+    categoryId: 'system_design',
+    text: 'Your application needs to find similar documents using semantic meaning rather than exact keywords. Which technology is appropriate?',
+    options: [
+      'A vector database with embedding-based similarity search',
+      'A traditional load balancer with round-robin routing',
+      'A message queue containing the complete document collection',
+      'A CDN configured to store only static JavaScript files'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-26',
+    categoryId: 'system_design',
+    text: 'Your graph-based application frequently traverses relationships between users, accounts, and recommendations. Which database model may fit naturally?',
+    options: [
+      'A document database optimized only for isolated records',
+      'A graph database designed around nodes and relationships',
+      'A cache designed primarily for temporary key-value storage',
+      'An object store designed primarily for large binary files'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-27',
+    categoryId: 'system_design',
+    text: 'A real-time collaboration system needs updates delivered immediately to connected users. Which communication approach is most suitable?',
+    options: [
+      'Periodic database polling from every browser',
+      'Repeated full-page refreshes after every update',
+      'Persistent WebSocket connections with server-side events',
+      'Static files served through a traditional CDN'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-28',
+    categoryId: 'system_design',
+    text: 'Thousands of users connect to several WebSocket servers, and events received by one server must reach clients connected elsewhere. What can help?',
+    options: [
+      'Store WebSocket messages only inside each server process',
+      'Require every client to connect to every server',
+      'Send all events through browser local storage',
+      'Use shared messaging such as Redis Pub/Sub or a broker'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-29',
+    categoryId: 'system_design',
+    text: 'Your API receives excessive requests from a small group of clients, affecting other users. What protection should you introduce?',
+    options: [
+      'Rate limiting based on suitable client or account identifiers',
+      'Increase response sizes so fewer requests are required',
+      'Remove authentication to simplify request processing',
+      'Disable logging so the server spends less time recording requests'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-30',
+    categoryId: 'system_design',
+    text: 'A public API is being targeted by abusive automated traffic. What combination provides a stronger defense?',
+    options: [
+      'Disable all caching and increase application server capacity',
+      'Use rate limits, authentication, validation, and traffic controls',
+      'Allow unlimited requests and rely only on database scaling',
+      'Move all API logic into the client to reduce server responsibilities'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-31',
+    categoryId: 'system_design',
+    text: 'A service returns large responses even when clients need only a few fields. What design improvement can reduce bandwidth and processing?',
+    options: [
+      'Return every available field to simplify client development',
+      'Duplicate the same response across multiple endpoints',
+      'Allow clients to request only the fields required for the operation',
+      'Increase response compression without changing the response structure'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-32',
+    categoryId: 'system_design',
+    text: 'Your microservices have become difficult to operate because every service owns shared business logic and databases. What principle could improve boundaries?',
+    options: [
+      'Make every service directly access every other service database',
+      'Centralize all business logic into one large service',
+      'Duplicate all data and logic across every service',
+      'Define clear service ownership around business capabilities'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-33',
+    categoryId: 'system_design',
+    text: 'A microservice deployment causes failures because one service is tightly dependent on another service being available. What can reduce this coupling?',
+    options: [
+      'Use asynchronous messaging where immediate responses are unnecessary',
+      'Make every service call every other service synchronously',
+      'Share one database connection pool across all services',
+      'Increase timeout values for every service dependency'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-34',
+    categoryId: 'system_design',
+    text: 'Your application has many services and debugging a slow request requires checking logs from several machines. What should improve observability?',
+    options: [
+      'Store logs only on the local machine running each service',
+      'Use centralized logs, metrics, tracing, and correlation identifiers',
+      'Disable application logs to reduce infrastructure overhead',
+      'Ask users to report which backend server handled their request'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-35',
+    categoryId: 'system_design',
+    text: 'A production service occasionally becomes slow, but CPU and memory metrics look normal. What should you investigate next?',
+    options: [
+      'Increase server memory without identifying the actual bottleneck',
+      'Restart all services whenever latency increases',
+      'Use distributed tracing and request-level latency measurements',
+      'Disable monitoring because the infrastructure metrics look healthy'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-36',
+    categoryId: 'system_design',
+    text: 'A deployment introduces a serious bug, and rolling back the entire system is risky. Which release strategy can limit the impact?',
+    options: [
+      'Deploy the new version to every server simultaneously',
+      'Disable health checks during deployment to speed up releases',
+      'Release the new version only after removing the previous version',
+      'Use canary or gradual deployments before expanding traffic'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-37',
+    categoryId: 'system_design',
+    text: 'Your application must support zero-downtime deployments while several server instances are being updated. What approach helps?',
+    options: [
+      'Use rolling deployments while maintaining enough healthy capacity',
+      'Stop every server before installing the new version',
+      'Route all traffic to an instance being upgraded',
+      'Disable health checks until deployment finishes'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-38',
+    categoryId: 'system_design',
+    text: 'A service stores uploaded videos and images directly on application servers, making scaling difficult. What architecture is better?',
+    options: [
+      'Store every uploaded file permanently inside server memory',
+      'Use durable object storage and serve files through a CDN',
+      'Duplicate every file manually across application instances',
+      'Store large binary files directly inside API response payloads'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-39',
+    categoryId: 'system_design',
+    text: 'Your application allows users to upload large files, but uploads consume too many backend resources. What could reduce server involvement?',
+    options: [
+      'Send every file through the application server twice',
+      'Increase API timeout values for larger uploads',
+      'Use direct uploads to object storage with controlled access',
+      'Convert every uploaded file into database rows before storing it'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-40',
+    categoryId: 'system_design',
+    text: 'A distributed application needs one unique sequence of events, but different servers generate conflicting timestamps. What should you consider?',
+    options: [
+      'Assume machine clocks are always perfectly synchronized',
+      'Use local timestamps without accounting for clock differences',
+      'Increase the precision of browser-generated timestamps only',
+      'Use an appropriate ordering or coordination mechanism for the system'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-41',
+    categoryId: 'system_design',
+    text: 'A system must remain usable during temporary dependency failures instead of failing every request. Which design principle is most relevant?',
+    options: [
+      'Design graceful degradation and provide useful fallback behavior',
+      'Make every dependency mandatory for every user operation',
+      'Retry failed dependencies forever until they become available',
+      'Return larger error responses containing internal service details'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
+    id: 'sd-42',
+    categoryId: 'system_design',
+    text: 'Your service must process a payment request safely even if the client retries after a timeout. What should the API support?',
+    options: [
+      'Allow every retry to create another payment attempt',
+      'Use idempotency keys to prevent duplicate processing',
+      'Ignore all retry requests regardless of their contents',
+      'Store payment requests only inside the client browser'
+    ],
+    correctOptionIndex: 1,
+  },
+  {
+    id: 'sd-43',
+    categoryId: 'system_design',
+    text: 'A system has several independent databases, but generating a cross-service report requires joining their data. What should you consider architecturally?',
+    options: [
+      'Make every service directly query every other service database',
+      'Create one shared database and remove service ownership',
+      'Build a reporting or analytics data pipeline for required views',
+      'Copy every database completely into every application server'
+    ],
+    correctOptionIndex: 2,
+  },
+  {
+    id: 'sd-44',
+    categoryId: 'system_design',
+    text: 'Your system needs to survive a regional outage with minimal downtime. Which architecture provides stronger disaster recovery?',
+    options: [
+      'Keep backups only on the same infrastructure as production',
+      'Depend on manual database restoration from local disks',
+      'Run all production capacity inside one geographic region',
+      'Maintain replicated infrastructure and tested recovery procedures'
+    ],
+    correctOptionIndex: 3,
+  },
+  {
+    id: 'sd-45',
+    categoryId: 'system_design',
+    text: 'Before redesigning a slow distributed application, what is the most reliable way to decide which component needs optimization?',
+    options: [
+      'Use metrics, logs, traces, profiling, and load testing to locate bottlenecks',
+      'Rewrite every service using a different programming language',
+      'Add caching to every component without measuring its effectiveness',
+      'Increase infrastructure capacity everywhere before investigating the cause'
+    ],
+    correctOptionIndex: 0,
+  },
   ],
   devops: [
     {
