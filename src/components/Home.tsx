@@ -7,6 +7,7 @@ import { motion } from 'motion/react';
 interface HomeProps {
   progress: AppProgress;
   onSelectCategory: (categoryId: CategoryId) => void;
+  onStartMixedQuiz: () => void;
 }
 
 const ICONS: Record<CategoryId, React.ElementType> = {
@@ -90,19 +91,31 @@ const THEME: Record<CategoryId, {
   }
 };
 
-export const Home: React.FC<HomeProps> = ({ progress, onSelectCategory }) => {
+export const Home: React.FC<HomeProps> = ({
+  progress,
+  onSelectCategory,
+  onStartMixedQuiz
+}) => {
   return (
     <div className="w-full max-w-5xl mx-auto py-8 px-6 flex flex-col flex-1">
-      <header className='flex flex-col md:flex-row justify-between items-start md:items-end mb-10 border-b border-neutral-800 pb-6 gap-6 md:gap-0'>
-        <div>
-          <h1 className='text-4xl font-black tracking-tighter text-white uppercase italic'>
-            DevQuest<span className='text-indigo-500'>.</span>
-          </h1>
-          <p className='text-neutral-500 text-sm font-mono mt-1 uppercase tracking-widest'>Game for developers</p>
-        </div>
-        <div className='flex gap-12'>
-        </div>
-      </header>
+      <header className='flex flex-col md:flex-row justify-between items-start md:items-end mb-10 border-b border-neutral-800 pb-6 gap-5'>
+  <div>
+    <h1 className='text-4xl font-black tracking-tighter text-white uppercase italic'>
+      DevQuest<span className='text-indigo-500'>.</span>
+    </h1>
+
+    <p className='text-neutral-500 text-sm font-mono mt-1 uppercase tracking-widest'>
+      Game for developers
+    </p>
+  </div>
+
+  <button
+    onClick={onStartMixedQuiz}
+    className='w-full md:w-auto px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold uppercase text-xs tracking-[0.2em] rounded-xl transition-colors flex items-center justify-center gap-2'
+  >
+    Take Test
+  </button>
+</header>
 
       <main className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-6">
         {CATEGORIES.map((category) => {

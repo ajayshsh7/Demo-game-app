@@ -174,6 +174,27 @@ export const Quiz: React.FC<QuizProps> = ({
    * Quiz completed screen
    */
   if (quizCompleted) {
+    const handleRestartQuiz = () => {
+      const newQuestionIds = shuffleQuestions(allQuestions).map(
+        (question) => question.id
+      );
+
+      setRemainingQuestionIds(newQuestionIds);
+      setSelectedOption(null);
+      setIsAnswered(false);
+      setIsCorrect(null);
+      setGameOver(false);
+      setQuizCompleted(false);
+
+      localStorage.removeItem(storageKey);
+
+      onUpdateProgress(categoryId, {
+        score: 0,
+        lives: 3,
+        isComplete: false
+      });
+    };
+
     return (
       <div className="w-full max-w-2xl mx-auto py-12 px-6 flex flex-col items-center justify-center min-h-[60vh] text-center">
         <motion.div
@@ -191,12 +212,21 @@ export const Quiz: React.FC<QuizProps> = ({
             Great job! You have mastered the {category.name} questions.
           </p>
 
-          <button
-            onClick={onBack}
-            className="w-full py-4 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition-colors"
-          >
-            Continue Journey
-          </button>
+          <div className="space-y-3 w-full">
+            <button
+              onClick={handleRestartQuiz}
+              className="w-full py-4 rounded-xl font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition-colors"
+            >
+              Start Again
+            </button>
+
+            <button
+              onClick={onBack}
+              className="w-full py-4 rounded-xl font-bold bg-neutral-700 hover:bg-neutral-600 text-white transition-colors"
+            >
+              Continue Journey
+            </button>
+          </div>
         </motion.div>
       </div>
     );
