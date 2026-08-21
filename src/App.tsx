@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+// initial commit by gagan
+
 import React, { useState, useEffect } from 'react';
 import { Home } from './components/Home';
 import { Quiz } from './components/Quiz';
