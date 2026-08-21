@@ -3083,19 +3083,1328 @@ export const QUESTIONS: Record<string, Question[]> = {
   },
   ],
   devops: [
-    {
-  id: 'devops-1',
-  categoryId: 'devops',
-  text: 'Your application works correctly on your local machine but fails after deployment because environment variables are missing. What is the best DevOps approach to prevent this problem?',
-  options: [
-    'Hardcode the environment variables directly into the application',
-    'Store configuration securely and inject environment variables through the deployment pipeline',
-    'Commit the production environment file to the Git repository',
-    'Rebuild the application manually every time it is deployed'
-  ],
-  correctOptionIndex: 1,
-},
-  ],
+
+  {
+
+    id: 'devops-1',
+
+    categoryId: 'devops',
+
+    text: 'Your application must handle sudden traffic spikes without manually adding servers. Which approach best fits this requirement?',
+
+    options: [
+
+      'Use auto-scaling groups with defined capacity limits',
+
+      'Use one larger server with a fixed capacity limit',
+
+      'Use manual deployments whenever traffic starts increasing',
+
+      'Use local storage with a fixed number of workers'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-2',
+
+    categoryId: 'devops',
+
+    text: 'A cloud availability zone becomes unavailable, but users must still access your service. Which design most directly improves resilience?',
+
+    options: [
+
+      'Run all workloads on one larger instance type',
+
+      'Deploy critical workloads across multiple availability zones',
+
+      'Store application logs only on the failed region',
+
+      'Increase container image size to improve regional recovery'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-3',
+
+    categoryId: 'devops',
+
+    text: 'Your team wants every code change tested before reaching production. Which practice best supports this goal?',
+
+    options: [
+
+      'Require developers to test only after production deployment',
+
+      'Run automated builds and tests on every accepted code change',
+
+      'Run tests manually once at the end of each release month',
+
+      'Skip automated tests when the changed feature is small'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-4',
+
+    categoryId: 'devops',
+
+    text: 'A Docker image works locally but fails in production because dependencies differ. What is the strongest fix?',
+
+    options: [
+
+      'Install dependencies separately on every production server',
+
+      'Copy only the source files into each production container',
+
+      'Package the application and its dependencies inside the image',
+
+      'Use different dependency versions for local and production systems'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-5',
+
+    categoryId: 'devops',
+
+    text: 'Several Kubernetes pods keep restarting because the application exceeds its memory limit. What should you investigate first?',
+
+    options: [
+
+      'Increase replica count without checking resource consumption',
+
+      'Disable Kubernetes health checks to prevent the restarts',
+
+      'Move all pods to the same node to reduce network traffic',
+
+      'Review memory requests, limits, and the application usage pattern'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-6',
+
+    categoryId: 'devops',
+
+    text: 'A production deployment introduces errors, and the previous version was stable. Which DevOps capability provides the fastest safe recovery?',
+
+    options: [
+
+      'A rollback mechanism that restores the previous known-good version',
+
+      'A longer build process that delays every deployment',
+
+      'A larger container image containing unused debugging tools',
+
+      'A manual database export performed after the incident'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-7',
+
+    categoryId: 'devops',
+
+    text: 'Your company stores customer data in a cloud database. Which responsibility generally remains with the customer even when the provider manages the database infrastructure?',
+
+    options: [
+
+      'Protecting customer data through access controls and proper configuration',
+
+      'Replacing physical disks inside the provider data center',
+
+      'Repairing the provider cooling equipment during outages',
+
+      'Maintaining the provider private network hardware'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-8',
+
+    categoryId: 'devops',
+
+    text: 'A CI pipeline takes 40 minutes because every job runs sequentially. What change can reduce feedback time safely?',
+
+    options: [
+
+      'Remove all automated tests from the pipeline',
+
+      'Run independent jobs in parallel where their dependencies allow it',
+
+      'Run every job twice to improve pipeline consistency',
+
+      'Move the entire pipeline onto one slower shared runner'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-9',
+
+    categoryId: 'devops',
+
+    text: 'Your containers need credentials to access a managed database. Which approach is safest?',
+
+    options: [
+
+      'Bake credentials directly into the Docker image',
+
+      'Commit credentials into the application repository for easy access',
+
+      'Place credentials in public environment files used by every service',
+
+      'Store secrets in a managed secret system and inject them securely'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-10',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes service receives uneven traffic across healthy pods. Which mechanism is designed to distribute service traffic?',
+
+    options: [
+
+      'A Kubernetes Service that routes traffic across matching endpoints',
+
+      'A Dockerfile instruction that increases container memory',
+
+      'A ConfigMap that stores application source code',
+
+      'A container registry that stores deployment manifests'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-11',
+
+    categoryId: 'devops',
+
+    text: 'Your team needs repeatable infrastructure across development and production. Which practice best reduces configuration drift?',
+
+    options: [
+
+      'Manually configure each environment using separate runbooks',
+
+      'Define infrastructure as code and review changes through version control',
+
+      'Allow engineers to change production resources without recording them',
+
+      'Create infrastructure only through temporary local scripts'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-12',
+
+    categoryId: 'devops',
+
+    text: 'A container image contains an outdated library with a known critical vulnerability. What should happen before deployment?',
+
+    options: [
+
+      'Deploy it immediately and scan the image after customers use it',
+
+      'Remove the image tag while keeping the vulnerable package installed',
+
+      'Scan the image and block deployment when policy thresholds are violated',
+
+      'Increase the container CPU limit so the vulnerability matters less'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-13',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes application must keep serving traffic while a new version is introduced gradually. Which strategy fits best?',
+
+    options: [
+
+      'Stop every old pod before starting any new pod',
+
+      'Deploy the new version only to developer laptops first',
+
+      'Replace the database before changing the application containers',
+
+      'Use a rolling or progressive deployment with controlled traffic changes'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-14',
+
+    categoryId: 'devops',
+
+    text: 'Your CI system builds the same dependencies repeatedly, slowing pipelines. What optimization is usually appropriate?',
+
+    options: [
+
+      'Cache dependencies or build layers when they can be reused safely',
+
+      'Disable dependency installation and rely on developer machines',
+
+      'Copy the entire source repository into every cache entry',
+
+      'Run dependency downloads only after production deployment'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-15',
+
+    categoryId: 'devops',
+
+    text: 'A production API becomes slow, but CPU usage is normal. Which observability improvement is most useful for diagnosis?',
+
+    options: [
+
+      'Increase CPU limits without measuring request behavior',
+
+      'Collect metrics, logs, and traces with request-level context',
+
+      'Restart all services every few minutes to clear possible issues',
+
+      'Delete historical logs so current logs are easier to read'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-16',
+
+    categoryId: 'devops',
+
+    text: 'A service should automatically restart when its process crashes, but not when it is merely slow. Which Kubernetes feature is most relevant?',
+
+    options: [
+
+      'A readiness probe that determines whether the pod receives traffic',
+
+      'A ConfigMap that stores the container environment variables',
+
+      'A liveness probe that detects whether the container is functioning',
+
+      'A ServiceAccount that controls the pod API permissions'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-17',
+
+    categoryId: 'devops',
+
+    text: 'Your application starts successfully but needs time before it can accept traffic. Which Kubernetes mechanism prevents premature requests?',
+
+    options: [
+
+      'A liveness probe that always restarts the container during startup',
+
+      'A ConfigMap that stores the pod container image',
+
+      'A PersistentVolume that delays requests until mounted',
+
+      'A readiness probe that marks the pod available only when ready'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-18',
+
+    categoryId: 'devops',
+
+    text: 'Your organization wants deployments to happen automatically after successful tests, but only for approved production releases. What pattern fits?',
+
+    options: [
+
+      'Use CI for validation and controlled CD promotion into production',
+
+      'Deploy every commit directly to production without approval',
+
+      'Require developers to copy build files manually to production',
+
+      'Run production deployments only when monitoring reports an outage'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-19',
+
+    categoryId: 'devops',
+
+    text: 'A Docker container needs data that must survive container replacement. What should you use?',
+
+    options: [
+
+      'The writable container layer because it survives image replacement',
+
+      'A persistent volume or external managed storage for durable data',
+
+      'A temporary process variable because it persists after restarts',
+
+      'The container hostname because it identifies durable application state'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-20',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes workload has unpredictable CPU demand throughout the day. Which feature can adjust replicas based on measured utilization?',
+
+    options: [
+
+      'PersistentVolumeClaim using configured storage metrics',
+
+      'ConfigMap using configured application settings',
+
+      'Horizontal Pod Autoscaler using configured resource metrics',
+
+      'ServiceAccount using configured identity permissions'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-21',
+
+    categoryId: 'devops',
+
+    text: 'Your build process produces artifacts that deployment jobs need later. What is a good pipeline design?',
+
+    options: [
+
+      'Rebuild the application separately for every environment',
+
+      'Ask each environment to compile source code during deployment',
+
+      'Store build outputs only on a developer local workstation',
+
+      'Publish versioned artifacts and promote the same artifact between environments'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-22',
+
+    categoryId: 'devops',
+
+    text: 'A production incident requires knowing which deployment changed the service. Which practice helps most?',
+
+    options: [
+
+      'Attach immutable version identifiers and deployment metadata to releases',
+
+      'Reuse the same image tag for every deployment without recording changes',
+
+      'Delete deployment history after each successful release',
+
+      'Use server names as the only identifier for application versions'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-23',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes node fails and its pods disappear. What helps workloads recover automatically?',
+
+    options: [
+
+      'Pin every workload permanently to one specific node',
+
+      'Run replicated workloads under a controller that reschedules pods',
+
+      'Store all application state only inside pod writable layers',
+
+      'Disable scheduling so Kubernetes waits for the failed node'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-24',
+
+    categoryId: 'devops',
+
+    text: 'Your team wants to reduce the impact of a compromised container. Which practice is most effective?',
+
+    options: [
+
+      'Give every container root access to simplify operational debugging',
+
+      'Mount the entire host filesystem into each production container',
+
+      'Run with least privilege, restricted capabilities, and minimal images',
+
+      'Use one shared privileged container for all application services'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-25',
+
+    categoryId: 'devops',
+
+    text: 'A CI runner can deploy to production using long-lived cloud credentials. What is a safer design?',
+
+    options: [
+
+      'Store permanent administrator credentials inside pipeline variables',
+
+      'Share one root credential across every CI runner and project',
+
+      'Put cloud credentials directly inside public deployment scripts',
+
+      'Use short-lived, scoped workload identities with minimal permissions'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-26',
+
+    categoryId: 'devops',
+
+    text: 'Your Kubernetes deployment should never temporarily drop below four available replicas. Which configuration expresses that goal?',
+
+    options: [
+
+      'Set a PodDisruptionBudget requiring the minimum available replicas',
+
+      'Set a ConfigMap requiring the minimum available replicas',
+
+      'Set a ServiceAccount requiring the minimum available replicas',
+
+      'Set a PersistentVolume requiring the minimum available replicas'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-27',
+
+    categoryId: 'devops',
+
+    text: 'A service must receive zero traffic until its new version passes health checks. What deployment control is most appropriate?',
+
+    options: [
+
+      'Use container labels without connecting them to traffic routing',
+
+      'Use readiness checks before allowing new pods into service traffic',
+
+      'Use image compression so startup files are transferred faster',
+
+      'Use a ConfigMap to force requests toward every new pod'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-28',
+
+    categoryId: 'devops',
+
+    text: 'Your team wants to detect configuration mistakes before infrastructure changes reach production. What workflow is strongest?',
+
+    options: [
+
+      'Apply every infrastructure change directly and inspect results afterward',
+
+      'Keep production configuration outside version control to avoid accidental edits',
+
+      'Run infrastructure plans and policy checks in CI before applying approved changes',
+
+      'Allow each engineer to use different infrastructure definitions locally'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-29',
+
+    categoryId: 'devops',
+
+    text: 'A company wants the same container image promoted from testing to production. Why is this valuable?',
+
+    options: [
+
+      'It guarantees the application will never experience runtime failures',
+
+      'It removes the need for security scanning after the image is built',
+
+      'It allows production to ignore configuration and secret management entirely',
+
+      'It reduces differences between environments and improves release traceability'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-30',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes application must expose HTTP traffic externally while routing requests to the correct service. Which resource is commonly used?',
+
+    options: [
+
+      'An Ingress configured with routing rules and an ingress controller',
+
+      'A ConfigMap configured with routing rules and an ingress controller',
+
+      'A PersistentVolume configured with routing rules and an ingress controller',
+
+      'A ServiceAccount configured with routing rules and an ingress controller'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-31',
+
+    categoryId: 'devops',
+
+    text: 'A deployment is healthy but users report errors only in one region. What observability practice makes this easier to isolate?',
+
+    options: [
+
+      'Aggregate every region into one metric with no identifying dimensions',
+
+      'Break down metrics and traces by region, version, and service',
+
+      'Delete regional logs after successful deployments to reduce storage costs',
+
+      'Monitor only CPU because application errors cannot be region-specific'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-32',
+
+    categoryId: 'devops',
+
+    text: 'A team frequently edits production containers manually to fix issues. What DevOps principle should replace this practice?',
+
+    options: [
+
+      'Keep manual changes because they are faster than automated deployments',
+
+      'Modify running containers and document changes only during audits',
+
+      'Rebuild and redeploy from version-controlled configuration instead of manual mutation',
+
+      'Create a separate undocumented production image for every emergency fix'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-33',
+
+    categoryId: 'devops',
+
+    text: 'A Docker build includes compilers and source tools that are unnecessary at runtime. What improvement reduces the final image footprint?',
+
+    options: [
+
+      'Install additional development packages so builds become easier to reproduce',
+
+      'Keep all build tools because smaller images are less secure',
+
+      'Copy the entire build environment into the final runtime image',
+
+      'Use a multi-stage build and copy only required runtime artifacts'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-34',
+
+    categoryId: 'devops',
+
+    text: 'Your application must deploy frequently while limiting the blast radius of each release. Which strategy is useful?',
+
+    options: [
+
+      'Use canary releases that expose the new version to a small traffic segment',
+
+      'Send all users to the new version immediately after the first build',
+
+      'Deploy only during outages so fewer normal users observe changes',
+
+      'Run the new version without monitoring until the full rollout completes'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-35',
+
+    categoryId: 'devops',
+
+    text: 'A CI runner can access production databases even when its job does not need them. What security improvement should you make?',
+
+    options: [
+
+      'Give every pipeline job broader access so future deployments need fewer changes',
+
+      'Apply least-privilege permissions and isolate deployment credentials by job',
+
+      'Reuse one administrator role for testing, building, and production operations',
+
+      'Store database access inside the runner image so every job can use it'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-36',
+
+    categoryId: 'devops',
+
+    text: 'Your service needs a configuration value that changes between environments but is not secret. What Kubernetes resource is appropriate?',
+
+    options: [
+
+      'A Secret for every configuration value regardless of sensitivity',
+
+      'A PersistentVolume for every configuration value regardless of sensitivity',
+
+      'A ConfigMap for non-sensitive environment-specific configuration',
+
+      'A ServiceAccount for every configuration value regardless of sensitivity'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-37',
+
+    categoryId: 'devops',
+
+    text: 'A production service needs API keys that should not appear in Git history. What is the correct approach?',
+
+    options: [
+
+      'Encrypt the API keys with a key committed in the same repository',
+
+      'Store the API keys in Docker labels so operators can inspect them',
+
+      'Place the API keys in frontend source files so deployments can access them',
+
+      'Use a secret manager and inject the values during deployment or runtime'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-38',
+
+    categoryId: 'devops',
+
+    text: 'Your Kubernetes pods are repeatedly killed after exceeding memory usage. What is a practical first step?',
+
+    options: [
+
+      'Measure memory behavior and set realistic requests and limits based on usage',
+
+      'Remove memory limits from every namespace without measuring workload behavior',
+
+      'Increase CPU limits because CPU allocation directly prevents memory exhaustion',
+
+      'Restart the entire cluster whenever one pod exceeds its memory allocation'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-39',
+
+    categoryId: 'devops',
+
+    text: 'A team wants deployments to be auditable and reproducible months later. Which practice helps most?',
+
+    options: [
+
+      'Keep deployment files only on the CI server and overwrite them after each release',
+
+      'Version control deployment manifests and record immutable release artifacts',
+
+      'Use manual shell commands without recording the exact parameters used',
+
+      'Reuse mutable tags so historical deployments always point to the newest build'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-40',
+
+    categoryId: 'devops',
+
+    text: 'A cloud application stores backups in the same account and region as production. What is the main resilience concern?',
+
+    options: [
+
+      'Backups stored nearby always have higher latency than backups stored elsewhere',
+
+      'Separate accounts prevent backups from being restored by authorized operators',
+
+      'A regional or account-level failure could affect both production and backups',
+
+      'Cross-region backups are useful only when application servers use containers'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-41',
+
+    categoryId: 'devops',
+
+    text: 'A deployment needs to update ten services, but only two changed. What pipeline design avoids unnecessary work?',
+
+    options: [
+
+      'Rebuild every service for every commit regardless of what changed',
+
+      'Skip testing unchanged services even when they share affected dependencies',
+
+      'Deploy all services together because independent releases create more build time',
+
+      'Detect changed components and run targeted builds and tests where dependencies permit'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-42',
+
+    categoryId: 'devops',
+
+    text: 'A containerized service must run reliably across laptops, CI, and production. Which practice provides the strongest consistency?',
+
+    options: [
+
+      'Use the same container build definition and pinned dependency versions across environments',
+
+      'Install different dependency versions in each environment to match local needs',
+
+      'Let production download latest packages during startup without version constraints',
+
+      'Keep container builds optional so developers can choose different runtime environments'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-43',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes application has five replicas, but one node contains all of them. What improves fault tolerance?',
+
+    options: [
+
+      'Increase the replica count while keeping every replica on the same node',
+
+      'Use topology spreading or anti-affinity to distribute replicas across nodes',
+
+      'Store pod logs on the node and assume they provide workload redundancy',
+
+      'Disable scheduling constraints so Kubernetes can place replicas anywhere'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-44',
+
+    categoryId: 'devops',
+
+    text: 'Your organization wants to verify that container images come from trusted build processes. What practice helps?',
+
+    options: [
+
+      'Rename images with trusted-looking tags before pushing them to the registry',
+
+      'Store images in public registries because public visibility guarantees authenticity',
+
+      'Sign images and verify signatures before allowing trusted deployments',
+
+      'Skip provenance checks when images were produced by an internal developer'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-45',
+
+    categoryId: 'devops',
+
+    text: 'A Kubernetes cluster needs to run a workload only on nodes with a specific capability. What can enforce placement?',
+
+    options: [
+
+      'Use ConfigMaps to label application source code for workload placement',
+
+      'Use PersistentVolumes to label application source code for workload placement',
+
+      'Use container registries to label application source code for workload placement',
+
+      'Use node labels with selectors or affinity rules for workload placement'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-46',
+
+    categoryId: 'devops',
+
+    text: 'A monitoring system reports that requests are failing, but application logs lack enough context to trace individual requests. What should you add?',
+
+    options: [
+
+      'Distributed tracing and correlation identifiers across service boundaries',
+
+      'More CPU allocation so logs automatically contain request relationships',
+
+      'Shorter log retention so recent entries become easier to inspect',
+
+      'A larger container registry because traces are stored as container images'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-47',
+
+    categoryId: 'devops',
+
+    text: 'A deployment passes tests but gradually increases error rates after release. Which release method reduces risk?',
+
+    options: [
+
+      'Use a full immediate rollout because passing tests guarantee production behavior',
+
+      'Use progressive delivery with automated health checks and rollback thresholds',
+
+      'Disable monitoring during deployment to avoid false alarms from new traffic',
+
+      'Increase deployment frequency until errors become statistically insignificant'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-48',
+
+    categoryId: 'devops',
+
+    text: 'Your infrastructure is created by scripts that depend on each engineer local machine. What problem does this create?',
+
+    options: [
+
+      'Faster recovery because every engineer can use different infrastructure versions',
+
+      'Better security because infrastructure definitions remain outside version control',
+
+      'Environment-specific behavior and poor reproducibility across operators',
+
+      'Automatic scaling because local scripts can directly control production capacity'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-49',
+
+    categoryId: 'devops',
+
+    text: 'A CI job downloads packages from an untrusted mirror. What control improves software supply-chain security?',
+
+    options: [
+
+      'Allow any mirror because package managers automatically verify every package',
+
+      'Disable dependency checks because CI jobs run in isolated environments',
+
+      'Download packages directly during production startup to reduce build complexity',
+
+      'Use trusted registries, dependency verification, and controlled package sources'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-50',
+
+    categoryId: 'devops',
+
+    text: 'A service should continue operating when one application instance becomes unhealthy. What architecture helps?',
+
+    options: [
+
+      'Use multiple replicas behind health-aware load balancing',
+
+      'Use one larger instance with no health checks or failover mechanism',
+
+      'Store all traffic state inside one container temporary filesystem',
+
+      'Route every request to the newest instance regardless of health status'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-51',
+
+    categoryId: 'devops',
+
+    text: 'A cloud provider manages the physical servers, but your team exposes a storage bucket publicly by mistake. Who generally owns the configuration mistake?',
+
+    options: [
+
+      'The provider, because every customer configuration decision is managed by the provider',
+
+      'The customer, because secure configuration of the managed resource remains their responsibility',
+
+      'The hardware vendor, because storage buckets ultimately run on physical machines',
+
+      'The network carrier, because public access always originates from network routing'
+
+    ],
+
+    correctOptionIndex: 1,
+
+  },
+
+  {
+
+    id: 'devops-52',
+
+    categoryId: 'devops',
+
+    text: 'A release pipeline should stop automatically when container vulnerabilities exceed the organization policy threshold. What is the best control?',
+
+    options: [
+
+      'Scan images only after production deployment and accept all findings initially',
+
+      'Run vulnerability scans manually once per quarter outside the release pipeline',
+
+      'Integrate container scanning into CI and enforce severity-based deployment gates',
+
+      'Allow developers to override every critical finding without recording a reason'
+
+    ],
+
+    correctOptionIndex: 2,
+
+  },
+
+  {
+
+    id: 'devops-53',
+
+    categoryId: 'devops',
+
+    text: 'Your Kubernetes cluster has unused capacity at night but heavy workloads during business hours. Which approach can improve efficiency?',
+
+    options: [
+
+      'Keep every node running at maximum size throughout the entire day',
+
+      'Disable workload autoscaling and ask operators to add nodes manually',
+
+      'Increase container image sizes so idle capacity is consumed more efficiently',
+
+      'Combine horizontal scaling with appropriate cluster autoscaling policies'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+  {
+
+    id: 'devops-54',
+
+    categoryId: 'devops',
+
+    text: 'A team wants to recover an entire environment after a major infrastructure failure. What capability is most important?',
+
+    options: [
+
+      'Maintain tested backups, infrastructure definitions, and a documented recovery procedure',
+
+      'Keep screenshots of production dashboards and rebuild resources manually later',
+
+      'Store only application source code because infrastructure can always be recreated',
+
+      'Rely on the cloud provider default settings without testing restoration procedures'
+
+    ],
+
+    correctOptionIndex: 0,
+
+  },
+
+  {
+
+    id: 'devops-55',
+
+    categoryId: 'devops',
+
+    text: 'A company wants developers to merge code frequently while keeping the main branch releasable. Which practice best supports this?',
+
+    options: [
+
+      'Batch months of changes together and run the full test suite before merging',
+
+      'Allow direct production changes and synchronize source control after releases',
+
+      'Merge unfinished features without safeguards and rely on production monitoring',
+
+      'Use small changes, automated checks, and frequent integration into the main branch'
+
+    ],
+
+    correctOptionIndex: 3,
+
+  },
+
+],
   oop: [
     {
   id: 'oop-1',
