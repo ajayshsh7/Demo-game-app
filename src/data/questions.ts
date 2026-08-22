@@ -10,40 +10,35 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const QUESTIONS: Record<string, Question[]> = {
- frontend: [
-  {
-    id: 'fe-1',
-    categoryId: 'frontend',
-    text: 'You create a React component as `function profile() { return <div>Profile</div> }` and render `<profile />`. What is the most likely problem?',
-    options: [
-      'React treats `profile` as a regular HTML or DOM tag',
-      'React converts `profile` into a component automatically',
-      'React prevents the component from receiving any props',
-      'React requires every component to use arrow functions'
-    ],
-    correctOptionIndex: 0,
-  },
-  {
+  frontend: [
+    {
+      id: 'fe-1',
+      categoryId: 'frontend',
+      text: 'Which of the following hooks should be used for side effects in React?',
+      options: ['useState', 'useEffect', 'useMemo', 'useCallback'],
+      correctOptionIndex: 1,
+    },
+      {
     id: 'fe-2',
     categoryId: 'frontend',
     text: 'A large project has 30 pages and each page contains slightly different global button styles. What approach would best improve long-term maintainability?',
     options: [
-      'Copy the same button styles into every page',
-      'Create a shared button system with reusable styles',
-      'Place every button style inside one huge file',
-      'Use separate inline styles for every button'
+      'Create a shared button system with reusable styles and variants',
+      'Copy the button CSS into every page',
+      'Put all styles into one extremely large component file',
+      'Use inline styles everywhere'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-3',
     categoryId: 'frontend',
     text: 'An e-commerce homepage uses several JavaScript-driven animations that run continuously while the user scrolls. The page feels laggy on mobile. What should you investigate first?',
     options: [
-      'Increase the duration of every animation slightly',
-      'Add additional React state during scrolling',
-      'Replace the animations with database requests',
-      'Check layout work and prefer transform or opacity'
+      'Increase the animation duration to several seconds',
+      'Add more React state updates during scrolling',
+      'Replace every animation with a database request',
+      'Check whether animations trigger expensive layout/paint work and prefer CSS transforms/opacity'
     ],
     correctOptionIndex: 3,
   },
@@ -52,70 +47,70 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React list contains 1,000 products. Every time the user types into a search box, all product components appear to re-render. What is the most appropriate first optimization?',
     options: [
-      'Remove React state from the product components',
-      'Convert each product into a separate image',
-      'Filter efficiently and prevent unnecessary re-renders',
-      'Store every product inside a separate browser tab'
+      'Remove React state completely',
+      'Filter the data efficiently and avoid unnecessary component re-renders',
+      'Convert every product into an image',
+      'Store every product in a separate browser tab'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-5',
     categoryId: 'frontend',
     text: 'A component receives an object prop created inline on every parent render. A memoized child still re-renders. Why?',
     options: [
-      'React.memo cannot work with object properties',
-      'Objects cannot normally be passed through React props',
-      'React deeply compares every object before rendering',
-      'The object receives a new reference on every render'
+      'React automatically deep-compares all objects',
+      'The object gets a new reference on every render',
+      'React.memo does not work with objects',
+      'Objects cannot be passed as props'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-6',
     categoryId: 'frontend',
     text: 'A developer uses `useEffect` to calculate `totalPrice` from existing state on every render. What would usually be a better approach?',
     options: [
-      'Calculate the derived value directly when needed',
-      'Store the calculated value permanently in localStorage',
-      'Use another effect to calculate the value again',
-      'Use useRef to store every calculated value'
+      'Use another useEffect to calculate the value twice',
+      'Use useRef for every calculated value',
+      'Calculate the derived value directly during rendering or with useMemo when expensive',
+      'Store the total in localStorage'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-7',
     categoryId: 'frontend',
     text: 'A search input sends an API request on every keystroke and causes unnecessary network traffic. What is the best solution?',
     options: [
-      'Disable the search field during every keystroke',
-      'Use a debounce before sending the search request',
-      'Send multiple requests for each entered character',
-      'Use setInterval to repeatedly trigger every search'
+      'Use setInterval for every character',
+      'Disable the input',
+      'Debounce the search request',
+      'Send two requests per keystroke'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-8',
     categoryId: 'frontend',
     text: 'A user clicks "Submit" twice quickly and two orders are created. Which frontend improvement would help prevent this situation?',
     options: [
-      'Increase the submit button font size slightly',
-      'Add additional animations to the submit button',
-      'Disable submission while the request remains pending',
-      'Clear the entire application state after submitting'
+      'Clear the entire application state',
+      'Disable the submit action while the request is pending',
+      'Add more CSS animations',
+      'Increase the button font size'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-9',
     categoryId: 'frontend',
     text: 'A React component fetches data inside useEffect. The user navigates away before the request finishes. Why might cancellation be useful?',
     options: [
-      'It makes the API response considerably larger',
-      'It automatically changes REST requests into GraphQL',
-      'It makes the applications CSS load considerably faster',
-      'It prevents unnecessary work after the component is gone'
+      'It increases API response size',
+      'It converts REST into GraphQL',
+      'It makes CSS load faster',
+      'It prevents unnecessary work and avoids updating an unneeded component'
     ],
     correctOptionIndex: 3,
   },
@@ -124,10 +119,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A dashboard has several components that all need the logged-in users information. What is usually cleaner than passing the user through many unrelated components?',
     options: [
-      'Use shared state such as Context or state management',
-      'Duplicate the same user data inside every component',
-      'Store the user information inside CSS variables',
-      'Create separate HTML pages for every component'
+      'Use appropriate shared state such as Context or a state-management solution',
+      'Store the user in a CSS variable',
+      'Duplicate the user data in every component',
+      'Create a separate HTML page for each component'
     ],
     correctOptionIndex: 0,
   },
@@ -137,22 +132,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React list uses the array index as the key. Items can be inserted or removed from the middle of the list. What problem can occur?',
     options: [
-      'React may associate state with the wrong list item',
-      'The browser automatically removes the entire DOM',
-      'React automatically converts the list into a table',
-      'The browser completely stops applying the CSS'
+      'CSS will stop working',
+      'React will automatically convert the list to a table',
+      'React may associate component state with the wrong item',
+      'The browser will delete the entire DOM'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-12',
     categoryId: 'frontend',
     text: 'A component has deeply nested conditional rendering that is becoming difficult to understand. What would improve maintainability?',
     options: [
-      'Put all conditions inside one extremely large ternary',
-      'Break the UI into smaller meaningful components and conditions',
-      'Duplicate the component several times across the application',
-      'Move the conditions into separate CSS animation rules'
+      'Duplicate the component several times',
+      'Break the UI into smaller meaningful components and simplify state/conditions',
+      'Move the conditions into CSS animations',
+      'Put all conditions into one giant ternary'
     ],
     correctOptionIndex: 1,
   },
@@ -161,36 +156,36 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React component stores `isLoggedIn` and also stores `user` separately, even though `isLoggedIn` can be determined from `user`. What problem can this create?',
     options: [
-      'React cannot store boolean values inside component state',
-      'The browser may automatically refresh after every update',
-      'The application can develop conflicting sources of truth',
-      'React state objects cannot contain ordinary string values'
+      'State objects cannot contain strings',
+      'The application may have conflicting sources of truth',
+      'The browser will automatically refresh',
+      'React cannot store booleans'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-14',
     categoryId: 'frontend',
     text: 'A component needs to remember a DOM element but changing that reference should not trigger a re-render. Which hook fits this requirement?',
     options: [
-      'useState is designed for storing changing DOM references',
-      'useEffect is designed for storing persistent DOM references',
-      'useMemo is designed for storing mutable DOM references',
-      'useRef stores the reference without causing a re-render'
+      'useMemo',
+      'useRef',
+      'useEffect',
+      'useState'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-15',
     categoryId: 'frontend',
     text: 'A developer adds `useCallback` to every function in an application hoping to make everything faster. What is the main issue with this approach?',
     options: [
-      'Memoization adds overhead and is useful when stability matters',
-      'useCallback completely prevents functions from executing normally',
-      'useCallback can only be used inside CSS-related components',
-      'useCallback always makes every application significantly slower'
+      'useCallback prevents functions from executing',
+      'useCallback only works in CSS',
+      'Memoization has its own cost and is useful mainly when referential stability matters',
+      'useCallback always makes applications slower'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
 
   {
@@ -198,34 +193,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A form contains email, password, and confirm-password fields. The submit button should remain disabled until all fields are valid. Where should validation logic primarily live?',
     options: [
-      'Only inside CSS rules associated with the input fields',
-      'Inside reusable validation logic based on the form state',
-      'Inside an SVG attached to the form submit button',
-      'Only inside the browser document title element'
+      'In reusable validation logic that can be evaluated from the form state',
+      'Only in the browser title',
+      'Only inside CSS',
+      'Inside an SVG'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-17',
     categoryId: 'frontend',
     text: 'A form reloads the page whenever the user clicks Submit in a React application. What is likely missing?',
     options: [
-      'The form is missing a React.memo optimization call',
-      'The form is missing a window.reload invocation',
-      'The form is missing a useMemo calculation hook',
-      'The submit handler is missing event.preventDefault()'
+      'React.memo()',
+      'window.reload()',
+      'event.preventDefault()',
+      'useMemo()'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-18',
     categoryId: 'frontend',
     text: 'A form displays an error message only after the user has interacted with the field. What state is useful for this behavior?',
     options: [
-      'A loading state that tracks the current network request',
-      'A theme state that tracks the current visual appearance',
-      'A touched state that tracks whether the field was visited',
-      'An animation state that tracks whether the field is moving'
+      'Only a loading state',
+      'A CSS animation state',
+      'A touched/visited state',
+      'Only a theme state'
     ],
     correctOptionIndex: 2,
   },
@@ -234,24 +229,24 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A login form stores the password in React state and logs the entire state object while debugging. What is the main concern?',
     options: [
-      'React cannot safely store ordinary password strings in state',
+      'State objects cannot contain strings',
+      'Password fields require SVG',
       'Passwords may accidentally appear in logs or debugging tools',
-      'Password inputs require an SVG before they can work correctly',
-      'React state objects cannot contain values from password fields'
+      'React cannot handle password inputs'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-20',
     categoryId: 'frontend',
     text: 'A form has 15 fields and validation becomes difficult to maintain because every input has separate validation code. What is the better approach?',
     options: [
-      'Centralize validation rules so the same logic can be reused',
-      'Remove most validation rules to simplify the form structure',
-      'Validate only the first input before allowing submission',
-      'Use CSS selectors as the primary validation mechanism'
+      'Use CSS selectors as the only validation mechanism',
+      'Centralize and reuse validation rules',
+      'Validate only the first field',
+      'Remove validation'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
 
   {
@@ -259,46 +254,46 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page has a navigation link styled as a `<div>` with an onClick handler. Keyboard users cannot easily activate it. What is the better solution?',
     options: [
-      'Make the clickable div larger for keyboard users',
-      'Add an SVG behind the div to improve its semantics',
-      'Use a semantic anchor or button for the intended action',
-      'Add additional box shadows around the clickable div'
+      'Add an SVG behind the div',
+      'Use a semantic `<a>` or `<button>` depending on the action',
+      'Make the div larger',
+      'Add more box-shadow'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-22',
     categoryId: 'frontend',
     text: 'A form field has a placeholder saying "Enter email" but no visible label. What is the main accessibility concern?',
     options: [
-      'Email inputs are not allowed to contain placeholder text',
-      'CSS cannot style placeholders consistently across browsers',
-      'The field may lack a persistent accessible name or label',
-      'Placeholder attributes cannot contain ordinary descriptive text'
+      'The field may lack a persistent accessible name/label',
+      'CSS cannot style placeholders',
+      'Placeholders cannot contain text',
+      'Email inputs cannot have placeholders'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-23',
     categoryId: 'frontend',
     text: 'A modal opens when a user clicks a button. For accessibility, what should happen to keyboard focus?',
     options: [
-      'Focus should generally move into the modal and be managed',
-      'Focus should always move to the browser address bar',
-      'Focus should be removed completely from the document',
-      'Focus should automatically move toward the page footer'
+      'Focus should move to the footer',
+      'Focus should be removed from the document',
+      'Focus should generally move into the modal and be managed appropriately',
+      'Focus should always move to the browser address bar'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-24',
     categoryId: 'frontend',
     text: 'A decorative SVG icon is announced by a screen reader and makes the page confusing. What should you consider?',
     options: [
-      'Replace the SVG with JavaScript-generated visual elements',
+      'Add more animation',
       'Hide decorative SVGs from assistive technology when appropriate',
-      'Add more animation so the SVG becomes visually obvious',
-      'Make every decorative SVG interactive for screen readers'
+      'Make every SVG interactive',
+      'Replace the SVG with JavaScript'
     ],
     correctOptionIndex: 1,
   },
@@ -307,12 +302,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'An image contains important information, but its alt attribute is empty. What should be done?',
     options: [
-      'Keep alt empty because all images should have empty alternatives',
-      'Put the important image description only inside CSS content',
-      'Replace the image with an animated version containing the information',
-      'Provide meaningful alternative text describing the important information'
+      'Replace the image with an animation',
+      'Provide meaningful alternative text describing the important information',
+      'Keep alt empty because all images should have empty alt',
+      'Put the description only in CSS'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 1,
   },
 
   {
@@ -320,22 +315,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A CSS animation changes width from 100px to 500px every frame and causes visible jank. Which properties are generally safer for smooth animations?',
     options: [
-      'Use width and height properties for the animation instead',
-      'Use margin and padding properties for the animation instead',
-      'Use transform and opacity properties for smoother animations',
-      'Use top and left properties for the animation instead'
+      'margin and padding',
+      'transform and opacity',
+      'width and height',
+      'top and left only'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-27',
     categoryId: 'frontend',
     text: 'A card should smoothly move 100px to the right when hovered. Which approach is generally preferable for performance?',
     options: [
-      'Use transform: translateX() to move the card visually',
-      'Change margin-left repeatedly during the hover animation',
-      'Modify the DOM structure during every animation frame',
-      'Use JavaScript to repeatedly modify the HTML content'
+      'Use transform: translateX()',
+      'Change the DOM structure every frame',
+      'Use JavaScript to modify the HTML text',
+      'Change margin-left repeatedly'
     ],
     correctOptionIndex: 0,
   },
@@ -344,22 +339,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page contains a scroll animation that runs JavaScript on every scroll event and becomes sluggish. What is a good first improvement?',
     options: [
-      'Increase the amount of JavaScript executed during scrolling',
-      'Disable browser scrolling so the animation cannot run',
-      'Increase the number of DOM nodes used by the animation',
-      'Use CSS where possible and throttle expensive scroll work'
+      'Disable browser scrolling',
+      'Use CSS where possible and throttle/requestAnimationFrame expensive JavaScript work',
+      'Increase the number of DOM nodes',
+      'Run even more code on every scroll event'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-29',
     categoryId: 'frontend',
     text: 'A website uses large JavaScript animations for a simple fade-in effect. What is usually the better choice?',
     options: [
-      'Create a new DOM node for every animation frame',
-      'Use CSS transitions or animations when they are sufficient',
-      'Use React state updates for every animation frame',
-      'Use a WebSocket connection to control the fade effect'
+      'Use React state every frame',
+      'Use CSS transitions/animations when they are sufficient',
+      'Use a WebSocket for the fade',
+      'Create a new DOM node every frame'
     ],
     correctOptionIndex: 1,
   },
@@ -368,12 +363,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A user has enabled reduced motion in their operating system. How should a frontend application respond?',
     options: [
-      'Increase animation speed so the effect finishes sooner',
-      'Force every animation to run regardless of user preference',
-      'Ignore the operating system preference completely',
-      'Respect prefers-reduced-motion and reduce unnecessary motion'
+      'Force all animations to run',
+      'Ignore the setting',
+      'Respect prefers-reduced-motion and reduce or disable non-essential motion',
+      'Increase animation speed'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
 
   {
@@ -381,10 +376,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'You use Motion to animate a list when items are added and removed. Which capability is particularly useful for making removed items animate out?',
     options: [
-      'Use localStorage to preserve the removed list elements',
-      'Use AnimatePresence to handle exiting animated elements',
-      'Use useId to generate identifiers for removed list elements',
-      'Use dangerouslySetInnerHTML to animate removed list elements'
+      'useId',
+      'AnimatePresence',
+      'dangerouslySetInnerHTML',
+      'localStorage'
     ],
     correctOptionIndex: 1,
   },
@@ -393,10 +388,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A Motion animation should start only after a component enters the viewport. Which concept is most appropriate?',
     options: [
-      'Use database indexing to detect viewport visibility',
-      'Use form serialization to detect viewport visibility',
-      'Use viewport-based animation triggering for the component',
-      'Use CSS specificity rules to detect viewport visibility'
+      'Form serialization',
+      'CSS specificity',
+      'Viewport-based animation triggering',
+      'Database indexing'
     ],
     correctOptionIndex: 2,
   },
@@ -405,34 +400,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A developer creates a spring animation with extremely high stiffness and low damping. What visual result is most likely?',
     options: [
-      'The element may oscillate or feel excessively bouncy',
-      'The element will automatically become completely static',
-      'The browser will disable JavaScript during the animation',
-      'The animated element will automatically become inaccessible'
+      'The element becomes completely static',
+      'The element may oscillate or feel overly bouncy',
+      'The element becomes inaccessible',
+      'The browser disables JavaScript'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-34',
     categoryId: 'frontend',
     text: 'A page uses dozens of complex Motion animations simultaneously and performance drops on low-end devices. What is the best design decision?',
     options: [
-      'Increase the number of animated elements across the page',
-      'Add more React state to coordinate every animation',
-      'Animate everything more aggressively to finish sooner',
-      'Reduce unnecessary motion and prioritize efficient transforms'
+      'Reduce unnecessary animations and prioritize lightweight transform/opacity animations',
+      'Add more React state',
+      'Increase the number of animated elements',
+      'Animate everything more aggressively'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-35',
     categoryId: 'frontend',
     text: 'A button changes its width during a hover animation, causing nearby content to jump. What would prevent most of this layout shift?',
     options: [
-      'Increase the font size so the width change appears smaller',
-      'Add additional margins whenever the button changes width',
-      'Animate transform or scale instead of changing layout dimensions',
-      'Force a complete page reload after every hover animation'
+      'Force a page reload',
+      'Use a larger font',
+      'Animate transform/scale or reserve the required layout space',
+      'Add more margins dynamically'
     ],
     correctOptionIndex: 2,
   },
@@ -442,10 +437,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A dashboard is responsive on desktop but overflows horizontally on mobile because a child has a fixed width of 900px. What should you investigate?',
     options: [
-      'Increase the fixed child width to approximately 1200px',
-      'Use responsive sizing constraints and flexible layout behavior',
-      'Remove all CSS rules affecting the responsive dashboard',
-      'Add additional JavaScript to manually position the child'
+      'Add more JavaScript',
+      'Use responsive sizing constraints such as max-width and flexible layouts',
+      'Remove all CSS',
+      'Increase the fixed width to 1200px'
     ],
     correctOptionIndex: 1,
   },
@@ -454,46 +449,46 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A CSS rule `.card p` unexpectedly overrides a component-specific paragraph style. What should you investigate first?',
     options: [
-      'Investigate CSS specificity and the order of style rules',
-      'Investigate the React state used by the paragraph component',
-      'Investigate the SVG viewBox used somewhere on the page',
-      'Investigate the TypeScript generic used by the component'
+      'TypeScript generics',
+      'CSS specificity and source order',
+      'SVG viewBox',
+      'React state'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-38',
     categoryId: 'frontend',
     text: 'A project has repeated CSS values such as the same spacing, radius, and brand colors in dozens of files. What would make the design system easier to maintain?',
     options: [
-      'Duplicate the same values more consistently across files',
-      'Move every design value into separate JavaScript strings',
-      'Use CSS custom properties or shared design tokens',
-      'Remove responsive styles so fewer values need maintenance'
+      'Move all values into JavaScript strings',
+      'Use CSS custom properties/design tokens',
+      'Remove responsive styles',
+      'Duplicate the values more consistently'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-39',
     categoryId: 'frontend',
     text: 'Two elements overlap unexpectedly because one has a higher z-index but still appears behind another. What should you investigate?',
     options: [
-      'Investigate the React hooks used by both overlapping elements',
-      'Investigate the stacking contexts and positioning rules',
-      'Investigate the form validation logic on the page',
-      'Investigate the TypeScript types assigned to each element'
+      'Stacking contexts and positioning',
+      'TypeScript generics',
+      'Form validation',
+      'React hooks'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-40',
     categoryId: 'frontend',
     text: 'A CSS layout uses many absolute positions and breaks whenever text becomes longer. What layout strategy would usually be more resilient?',
     options: [
-      'Use JavaScript to calculate every element position dynamically',
-      'Hardcode every text width so positions remain predictable',
-      'Use additional absolute positioning for the remaining elements',
-      'Use Flexbox or Grid for the main structural layout'
+      'Hardcode every text width',
+      'Use JavaScript to calculate every position',
+      'Use more absolute positioning',
+      'Use Flexbox/Grid for structural layout'
     ],
     correctOptionIndex: 3,
   },
@@ -503,58 +498,58 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A button contains only a hamburger SVG icon and has no accessible name. What should you add?',
     options: [
-      'Add an accessible label such as aria-label or visible text',
-      'Add a larger SVG so the icon becomes easier to recognize',
-      'Add more CSS animation so the button becomes noticeable',
-      'Add a database ID so assistive technology can identify it'
+      'A database ID',
+      'An accessible label such as aria-label or visible text',
+      'More CSS animation',
+      'A larger SVG'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-42',
     categoryId: 'frontend',
     text: 'An SVG logo looks blurry when displayed at different sizes because it was converted into a low-resolution PNG. What advantage would an SVG provide?',
     options: [
-      'It automatically improves JavaScript execution performance',
-      'It stores database records more efficiently than a PNG',
-      'It removes the need for CSS styling across the application',
-      'It scales without the same pixelation associated with raster images'
+      'It stores database records',
+      'It automatically improves JavaScript performance',
+      'It scales without the same pixelation associated with raster images',
+      'It eliminates CSS'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-43',
     categoryId: 'frontend',
     text: 'An SVG illustration contains dozens of unnecessary path elements and significantly increases DOM complexity. What could improve performance?',
     options: [
-      'Add more path elements to simplify browser rendering',
-      'Animate every path continuously to improve visual performance',
-      'Optimize and simplify the SVG path structure',
-      'Convert every SVG path into a separate React state value'
+      'Convert every path into React state',
+      'Optimize/simplify the SVG',
+      'Animate every path continuously',
+      'Add more paths'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-44',
     categoryId: 'frontend',
     text: 'You want to change the color of an SVG icon using CSS, but the SVG uses hardcoded `fill="#000"`. What could make it easier to theme?',
     options: [
-      'Use currentColor or another CSS-compatible fill value',
-      'Convert the SVG into SQL data before applying the color',
-      'Remove the SVG viewBox so CSS can control the shape',
-      'Use useEffect to manually change every SVG pixel'
+      'Remove the SVG viewBox',
+      'Use currentColor or CSS-compatible fill values',
+      'Use useEffect to change every pixel',
+      'Convert it to SQL'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-45',
     categoryId: 'frontend',
     text: 'An SVG is purely decorative and should not receive keyboard focus. What should you consider?',
     options: [
-      'Add tabindex="0" so the decorative SVG can receive focus',
-      'Make every SVG path clickable for keyboard navigation',
-      'Use appropriate accessibility attributes such as aria-hidden',
-      'Add a form action so the SVG becomes a semantic control'
+      'Making every path clickable',
+      'Adding tabindex="0"',
+      'Appropriate accessibility attributes such as aria-hidden when applicable',
+      'Adding a form action'
     ],
     correctOptionIndex: 2,
   },
@@ -564,10 +559,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A TypeScript function accepts either a string ID or a number ID. What is the most appropriate type?',
     options: [
-      'Use `any` because the function accepts multiple possible values',
-      'Use `string | number` because both values are explicitly supported',
-      'Use `never` because the function accepts more than one value',
-      'Use `unknown[]` because IDs can have different primitive types'
+      'unknown[]',
+      'string | number',
+      'any',
+      'never'
     ],
     correctOptionIndex: 1,
   },
@@ -576,48 +571,48 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React component receives a `variant` prop that should only be `"primary"` or `"secondary"`. How can TypeScript help prevent invalid values?',
     options: [
-      'Use a literal union type containing the allowed variant values',
-      'Use `any` so the component accepts all possible variant values',
-      'Remove the prop type so React handles the values automatically',
-      'Use a boolean because the component has two possible variants'
+      'Use boolean only',
+      'Remove the prop type',
+      'Use a literal union type',
+      'Use any'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-48',
     categoryId: 'frontend',
     text: 'A API response is typed as `any`, and a developer accesses `response.user.profile.name` without checking whether those properties exist. What is the main disadvantage?',
     options: [
-      'The browser automatically caches the API response differently',
-      'The API becomes faster because TypeScript skips checking',
       'TypeScript provides less protection against invalid property access',
-      'React automatically stops rendering when nested data is missing'
+      'React stops rendering',
+      'The browser will automatically cache the API',
+      'The API becomes faster'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-49',
     categoryId: 'frontend',
     text: 'You receive data from an external API and do not fully trust its runtime shape. Which TypeScript type is safer than `any` before validation?',
     options: [
-      'Use `unknown` until the received value has been properly checked',
-      'Use `never` because external data should not be trusted',
-      'Use `void` because the API response is not yet validated',
-      'Use `object[]` because every API response must contain objects'
+      'object[] only',
+      'never',
+      'unknown',
+      'void'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-50',
     categoryId: 'frontend',
     text: 'A component prop should be optional and have a default value when omitted. Which TypeScript design expresses this correctly?',
     options: [
-      'Make every component property required before rendering',
-      'Use `never` for the property to prevent missing values',
-      'Use `undefined` as the entire component prop type',
-      'Make the property optional and provide a default during destructuring'
+      'Use undefined as the entire component type',
+      'Make every property required',
+      'Make the property optional and provide a default during destructuring',
+      'Use never for the property'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
 
   {
@@ -625,60 +620,60 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A JavaScript loop modifies an array while iterating over it, causing some elements to be skipped. What is a safer approach?',
     options: [
-      'Always replace the loop with an infinite while loop',
-      'Avoid mutation during iteration or create a new filtered array',
-      'Add random delays between every array modification',
-      'Convert the array into an object before modifying its values'
+      'Convert the array into an object',
+      'Add random delays',
+      'Always use a while(true) loop',
+      'Carefully avoid mutating the array during iteration or create a new filtered array'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-52',
     categoryId: 'frontend',
     text: 'A developer compares two objects with `===` and expects it to check whether their contents are identical. What actually happens?',
     options: [
-      'Objects are compared by reference rather than their contents',
-      'Objects are deeply compared automatically by JavaScript',
-      'Objects are converted to JSON before comparison automatically',
-      'Objects are compared alphabetically based on their properties'
+      'Objects are converted to JSON automatically',
+      'Objects are compared by reference',
+      'Objects are compared alphabetically',
+      'Objects are deeply compared automatically'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-53',
     categoryId: 'frontend',
     text: 'A function unexpectedly uses an older value of state inside an asynchronous callback. What concept should the developer investigate?',
     options: [
-      'Investigate CSS inheritance and cascading behavior',
-      'Investigate SVG path rendering and coordinate systems',
-      'Investigate closures and the possibility of stale state',
-      'Investigate HTML semantics and browser document structure'
+      'Closures and stale state',
+      'SVG paths',
+      'HTML semantics',
+      'CSS inheritance'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-54',
     categoryId: 'frontend',
     text: 'A developer uses `map()` to transform an array but forgets to return anything from the callback. What will the resulting array contain?',
     options: [
-      'The original values will automatically remain unchanged',
-      'Each array element will contain an undefined result',
-      'Every array element will automatically become a Promise',
-      'The transformed values will automatically be returned by map'
+      'A Promise for each element',
+      'The original array only',
+      'Undefined values for each processed element',
+      'The transformed values automatically'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-55',
     categoryId: 'frontend',
     text: 'A UI performs an expensive calculation after every keystroke even though the result is only needed when the user stops typing. What JavaScript technique can help?',
     options: [
-      'Use recursion to delay the expensive calculation',
-      'Use infinite loops to wait until typing has stopped',
-      'Use deep cloning to reduce the number of calculations',
-      'Use debouncing to wait until typing activity pauses'
+      'Deep cloning every frame',
+      'Debouncing',
+      'Infinite loops',
+      'Recursion'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 1,
   },
 
   {
@@ -686,10 +681,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page contains a huge image below the fold that is slowing initial loading. What could improve loading performance?',
     options: [
-      'Convert the image into an even larger PNG file',
-      'Load the same image multiple times during page startup',
-      'Lazy-load the image when it is appropriate to do so',
-      'Block the main thread until the image finishes loading'
+      'Load it multiple times',
+      'Block the main thread until it loads',
+      'Lazy-load the image when appropriate',
+      'Convert it into a larger PNG'
     ],
     correctOptionIndex: 2,
   },
@@ -698,34 +693,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React page loads a large chart library even though only one rarely visited route uses it. What optimization could help?',
     options: [
-      'Use code splitting or lazy loading for the chart library',
-      'Import the same chart library multiple times in the app',
-      'Move the chart library into a CSS file for faster loading',
-      'Disable React features so the chart library becomes smaller'
+      'Move the library into CSS',
+      'Import the library twice',
+      'Code splitting/lazy loading the library',
+      'Disable React'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-58',
     categoryId: 'frontend',
     text: 'A web page has a large amount of JavaScript and the first interaction feels delayed. Which browser metric/concept is especially relevant?',
     options: [
-      'Database normalization and relational table structure',
-      'SVG viewBox dimensions and vector coordinate systems',
-      'CSS color contrast and visual accessibility requirements',
-      'Main-thread work and overall interaction responsiveness'
+      'Database normalization',
+      'SVG viewBox size only',
+      'Main-thread work and interaction responsiveness',
+      'CSS color contrast only'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-59',
     categoryId: 'frontend',
     text: 'A component performs a heavy calculation during every render even when its inputs have not changed. What React feature could help when the calculation is genuinely expensive?',
     options: [
-      'Use useState with changing values to cache calculations',
-      'Use useMemo to reuse an expensive calculated result',
-      'Use useEffect without dependencies for every calculation',
-      'Use useRef for every calculated value regardless of cost'
+      'useState with random values',
+      'useMemo',
+      'useEffect without dependencies',
+      'useRef for every calculation'
     ],
     correctOptionIndex: 1,
   },
@@ -734,12 +729,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page renders 10,000 rows and becomes slow because all rows exist in the DOM simultaneously. What technique is appropriate?',
     options: [
-      'Use larger font sizes so fewer rows fit on screen',
-      'Add more rows so the browser can optimize the list',
-      'Use virtualization or windowing to render visible rows',
-      'Run setState repeatedly so each row updates independently'
+      'Run setState for every row every second',
+      'Virtualization/windowing',
+      'Use larger font sizes',
+      'Add more rows'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
 
   {
@@ -747,34 +742,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A developer uses `innerHTML` with user-provided content to render comments. What security problem should they consider?',
     options: [
-      'Potential cross-site scripting vulnerabilities from unsafe content',
-      'React key collisions caused by repeatedly rendering comments',
-      'CSS specificity problems caused by user-generated content',
-      'SVG scaling problems caused by dynamically inserted content'
+      'React key collisions',
+      'Potential XSS vulnerabilities',
+      'SVG scaling',
+      'CSS specificity'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-62',
     categoryId: 'frontend',
     text: 'A user submits a form while offline. Which frontend architecture provides a better user experience than simply showing a network error?',
     options: [
-      'Disable every button permanently whenever the connection disappears',
-      'Delete the submitted form whenever the network request fails',
-      'Reload the entire page repeatedly until the connection returns',
-      'Detect offline state and provide retry or queue behavior when supported'
+      'Disable all buttons permanently',
+      'Delete the form',
+      'Detect offline state and provide appropriate retry/queue behavior where the application supports it',
+      'Reload the page continuously'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-63',
     categoryId: 'frontend',
     text: 'A button works with a mouse but not when users press Enter or Space with the keyboard. What is the likely issue?',
     options: [
-      'The CSS color prevents keyboard users from activating the button',
-      'The interaction may not use an appropriate semantic control',
-      'The API response is too fast for keyboard interaction to work',
-      'The SVG icon is too large for keyboard events to function'
+      'The API is too fast',
+      'The interaction may not be implemented using an appropriate semantic control',
+      'The SVG is too large',
+      'The CSS color is incorrect'
     ],
     correctOptionIndex: 1,
   },
@@ -783,10 +778,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page displays a loading spinner for every tiny piece of data, causing the interface to constantly flicker. What is a better UX strategy?',
     options: [
-      'Make every loading spinner considerably larger and more visible',
-      'Reload the complete page whenever a small request begins',
-      'Add additional animations around every individual loading spinner',
-      'Use stable loading states such as skeletons and avoid flickering'
+      'Add more animations to every component',
+      'Make the spinner larger',
+      'Reload the entire page for every request',
+      'Use appropriate loading states such as skeletons or stable placeholders and avoid unnecessary flickering'
     ],
     correctOptionIndex: 3,
   },
@@ -795,12 +790,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React app fetches the same data in five different components, causing duplicate network requests. What architectural improvement would help?',
     options: [
-      'Make five additional requests so all components stay synchronized',
-      'Store the API response inside CSS variables for shared access',
-      'Centralize and cache server state using a suitable data strategy',
-      'Disable the components that request the same data repeatedly'
+      'Store the API response in CSS',
+      'Centralize/cache the server state using an appropriate data-fetching strategy',
+      'Disable all components',
+      'Make five more requests'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
 
   {
@@ -808,22 +803,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A navigation menu opens with an animation, but users can click links while the menu is visually disappearing. What should be considered?',
     options: [
-      'Coordinate animation and interaction state so unavailable elements stay inactive',
-      'Increase the animation speed so users cannot see the disappearing menu',
-      'Add more z-index values to separate the menu from other elements',
-      'Remove semantic HTML so the animation can control all interactions'
+      'Remove semantic HTML',
+      'Increase the animation speed randomly',
+      'Coordinate animation state and interaction state so unavailable elements are not accidentally interactive',
+      'Add more z-index values'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-67',
     categoryId: 'frontend',
     text: 'A page has a sticky header that covers anchor-linked content when users jump to a section. What CSS technique can help?',
     options: [
-      'Increase the header z-index to an extremely large value',
-      'Disable page scrolling whenever an anchor link is activated',
-      'Add position: absolute to the body element to change scrolling',
-      'Use scroll-margin-top or another appropriate scroll offset strategy'
+      'Add position: absolute to the body',
+      'Increase z-index to 999999',
+      'Disable scrolling',
+      'scroll-margin-top or an appropriate scroll offset strategy'
     ],
     correctOptionIndex: 3,
   },
@@ -832,10 +827,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A component needs to fetch data whenever its `userId` changes. What should be included in the useEffect dependency list?',
     options: [
-      'The complete DOM tree should be included in the dependencies',
-      'Nothing should be included because useEffect detects changes itself',
-      'The userId value should be included in the dependencies',
-      'Only the setState function should be included in the dependencies'
+      'The entire DOM',
+      'Nothing',
+      'userId',
+      'Only setState'
     ],
     correctOptionIndex: 2,
   },
@@ -845,9 +840,9 @@ export const QUESTIONS: Record<string, Question[]> = {
     text: 'A CSS animation works perfectly on desktop but causes discomfort for some users. What is the most responsible implementation?',
     options: [
       'Respect user motion preferences and provide reduced-motion behavior',
-      'Increase animation speed so users experience the motion briefly',
-      'Force the animation because consistent behavior is more important',
-      'Replace the CSS animation with a JavaScript interval instead'
+      'Replace it with a JavaScript interval',
+      'Force the animation because consistency is more important',
+      'Increase animation speed'
     ],
     correctOptionIndex: 0,
   },
@@ -856,36 +851,36 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'You are building a large frontend application where developers repeatedly solve the same problems for buttons, forms, modals, typography, spacing, and animations. What architecture would provide the greatest long-term benefit?',
     options: [
-      'Copy and paste components whenever another page needs them',
       'Allow every page to define completely different UI conventions',
-      'Put every component into one large file for centralized management',
-      'Build a reusable design system with shared tokens and patterns'
+      'Put every component into one giant file',
+      'A reusable component/design system with shared tokens, patterns, accessibility rules, and documented usage',
+      'Copy and paste components whenever needed'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 2,
   },
-],
+  ],
   backend: [
     {
-      id: 'be-1',
-      categoryId: 'backend',
-      text: 'What is the primary purpose of a reverse proxy like Nginx?',
-      options: [
-        'To compile backend code', 
-        'To directly serve database queries', 
-        'To distribute incoming traffic and serve static files', 
-        'To write log files to the client'
-      ],
-      correctOptionIndex: 2,
-    },
-    {
+  id: 'be-1',
+  categoryId: 'backend',
+  text: 'Your Node.js API receives thousands of requests, but one endpoint performs a heavy CPU calculation and causes other requests to become slow. What would be the best approach?',
+  options: [
+    'Store the calculation result inside browser cookies',
+    'Move the CPU-heavy work to worker threads or another service',
+    'Increase the request body size for that endpoint',
+    'Add more logging statements around the calculation'
+  ],
+  correctOptionIndex: 1,
+},
+{
   id: 'be-2',
   categoryId: 'backend',
   text: 'A Node.js API occasionally crashes because an unexpected error is thrown inside an asynchronous operation. What should you implement to handle such failures more reliably?',
   options: [
-    'Global error-handling middleware and proper async error propagation',
-    'More frontend validation',
-    'More CSS rules',
-    'Client-side localStorage'
+    'Use centralized error handling with proper async propagation',
+    'Add additional validation inside the frontend application',
+    'Store failed requests temporarily inside browser localStorage',
+    'Add extra middleware without changing error propagation'
   ],
   correctOptionIndex: 0,
 },
@@ -894,96 +889,96 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your API is receiving requests from many clients, and one endpoint is being abused by a single user. What would best protect the server?',
   options: [
-    'Rate limiting',
-    'Increasing JSON response size',
-    'Removing authentication',
-    'Using more HTML pages'
+    'Increase the maximum response size for that endpoint',
+    'Remove authentication requirements from the endpoint',
+    'Apply rate limiting based on users or client requests',
+    'Create additional HTML pages for the affected endpoint'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-4',
   categoryId: 'backend',
   text: 'A Node.js application needs to read a large file and send it to the client without consuming a huge amount of memory. Which approach is most appropriate?',
   options: [
-    'Load the entire file into memory first',
-    'Use Node.js streams',
-    'Convert the file into JSON',
-    'Store it inside a cookie'
+    'Convert the complete file into a JSON response first',
+    'Load the complete file into memory before sending it',
+    'Store the complete file temporarily inside a browser cookie',
+    'Use Node.js streams to process and send the file gradually'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-5',
   categoryId: 'backend',
   text: 'Your Node.js server has database credentials directly written inside the source code. What is the biggest problem with this approach?',
   options: [
-    'It makes JavaScript execute slower',
-    'It exposes sensitive credentials and makes environment-specific configuration difficult',
-    'It prevents HTTP requests',
-    'It increases CSS bundle size'
+    'It exposes sensitive credentials and complicates environment configuration',
+    'It prevents the Node.js application from accepting HTTP requests',
+    'It causes JavaScript code to execute significantly slower on the server',
+    'It increases the amount of CSS and frontend code in the application'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 0,
 },
 {
   id: 'be-6',
   categoryId: 'backend',
   text: 'An API endpoint takes several seconds because it performs multiple independent database requests sequentially. What could improve the response time?',
   options: [
-    'Execute independent operations concurrently where safe',
-    'Add more HTML elements',
-    'Disable HTTP methods',
-    'Store passwords in the URL'
+    'Add additional HTML elements to the frontend application',
+    'Execute independent database operations concurrently when appropriate',
+    'Disable some HTTP methods from the backend application',
+    'Store sensitive database passwords inside the request URL'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-7',
   categoryId: 'backend',
   text: 'Your Node.js application becomes difficult to maintain because routes contain authentication, validation, database queries, and business logic all together. What would be a better design?',
   options: [
-    'Put everything into one route file',
-    'Separate controllers, services, middleware, and data-access logic',
-    'Move everything into CSS',
-    'Duplicate each route for every user'
+    'Keep every responsibility together inside the same route file',
+    'Duplicate the route logic separately for each type of user',
+    'Separate controllers, services, middleware, and data-access responsibilities',
+    'Move the business logic from backend routes into frontend styling'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-8',
   categoryId: 'backend',
   text: 'A backend receives malformed JSON from a client and currently crashes instead of returning a useful response. What should the backend do?',
   options: [
-    'Return an appropriate 4xx response through centralized error handling',
-    'Restart the user’s browser',
-    'Ignore every request',
-    'Return HTTP 500 for every possible error'
+    'Restart the browser whenever malformed JSON reaches the server',
+    'Ignore malformed requests and continue processing them normally',
+    'Return HTTP 500 for every malformed request received by the server',
+    'Return an appropriate 4xx response through centralized error handling'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-9',
   categoryId: 'backend',
   text: 'Your Node.js API performs a long-running email-generation task. Users do not need the result immediately. What architecture would reduce the API response time?',
   options: [
-    'Process the task synchronously during every request',
-    'Put the task into a background job queue',
-    'Send the task through CSS',
-    'Increase the password length'
+    'Put the email task into a background job queue for later processing',
+    'Process the complete email task synchronously during every request',
+    'Increase the password length used by users of the application',
+    'Send the email-generation task through the frontend styling system'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 0,
 },
 {
   id: 'be-10',
   categoryId: 'backend',
   text: 'Your Node.js server needs to handle CPU-intensive work while utilizing multiple CPU cores. What could help scale the application?',
   options: [
-    'Node.js clustering or multiple application instances',
-    'More browser tabs',
-    'Larger cookies',
-    'More HTML files'
+    'Open additional browser tabs for each CPU-intensive operation',
+    'Use Node.js clustering or multiple application instances across cores',
+    'Increase the size of cookies sent with each application request',
+    'Create additional HTML files for the application workload'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 
 {
@@ -992,9 +987,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'A frontend needs to retrieve a user’s profile without modifying anything on the server. Which HTTP method is most appropriate?',
   options: [
     'POST',
-    'PATCH',
+    'DELETE',
     'GET',
-    'DELETE'
+    'PATCH'
   ],
   correctOptionIndex: 2,
 },
@@ -1005,46 +1000,46 @@ export const QUESTIONS: Record<string, Question[]> = {
   options: [
     '200 OK',
     '201 Created',
-    '400 Bad Request',
-    '301 Moved Permanently'
+    '301 Moved Permanently',
+    '400 Bad Request'
   ],
-  correctOptionIndex: 2,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-13',
   categoryId: 'backend',
   text: 'Your API successfully creates a new resource after receiving a POST request. Which status code best communicates this?',
   options: [
-    '201 Created',
     '204 No Content',
+    '201 Created',
     '401 Unauthorized',
     '404 Not Found'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-14',
   categoryId: 'backend',
   text: 'A user requests a resource that does not exist. Which HTTP response should normally be returned?',
   options: [
-    '200',
-    '201',
-    '404',
-    '500'
+    '200 OK',
+    '500 Internal Server Error',
+    '201 Created',
+    '404 Not Found'
   ],
-  correctOptionIndex: 2,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-15',
   categoryId: 'backend',
   text: 'Your API allows users to update only one field of a profile without replacing the entire resource. Which HTTP method is most appropriate?',
   options: [
-    'GET',
     'PATCH',
+    'GET',
     'DELETE',
     'OPTIONS'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 0,
 },
 {
   id: 'be-16',
@@ -1052,35 +1047,35 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'An authenticated user attempts to access an admin-only endpoint but does not have the required permission. What response best represents this situation?',
   options: [
     '201 Created',
-    '403 Forbidden',
     '404 Not Found',
+    '403 Forbidden',
     '301 Redirect'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-17',
   categoryId: 'backend',
   text: 'Your REST API has an endpoint `/users/123/orders`. What does this URL most naturally represent?',
   options: [
+    'A database server named orders for user 123',
     'Orders associated with user 123',
-    'A CSS file for user 123',
-    'A database server named orders',
-    'A WebSocket connection'
+    'A WebSocket connection for user 123',
+    'A CSS file belonging to user 123'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-18',
   categoryId: 'backend',
   text: 'Your API returns different error formats from different endpoints, making frontend error handling difficult. What would improve the design?',
   options: [
-    'Use a consistent API error-response structure',
-    'Remove all error messages',
-    'Return HTML from every endpoint',
-    'Return random status codes'
+    'Remove error messages from the backend responses',
+    'Return HTML pages from every API endpoint',
+    'Return different status formats based on each endpoint',
+    'Use a consistent error-response structure across API endpoints'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-19',
@@ -1088,9 +1083,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'A client repeatedly sends the same GET request for data that rarely changes. What HTTP mechanism can help reduce unnecessary network requests?',
   options: [
     'HTTP caching headers',
-    'POST requests',
     'Password hashing',
-    'WebSockets for every request'
+    'POST requests for repeated retrieval',
+    'WebSockets for every repeated request'
   ],
   correctOptionIndex: 0,
 },
@@ -1099,12 +1094,12 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your API returns 100,000 records from a database to a mobile client, causing slow responses. What is the better solution?',
   options: [
-    'Return all records every time',
-    'Implement pagination',
-    'Convert the response to HTML',
-    'Disable authentication'
+    'Return every record in a single response',
+    'Convert all records into an HTML response',
+    'Implement pagination for large result sets',
+    'Disable authentication for large responses'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 2,
 },
 
 {
@@ -1113,9 +1108,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'After login, your server needs a way to recognize the user across subsequent API requests. What is a common solution?',
   options: [
     'Authentication tokens',
+    'Random query parameters',
     'CSS classes',
-    'HTML comments',
-    'Random query parameters'
+    'HTML comments'
   ],
   correctOptionIndex: 0,
 },
@@ -1124,46 +1119,46 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your application stores user passwords as plain text. What is the biggest problem?',
   options: [
-    'Passwords become difficult to display',
+    'Login operations become unnecessarily fast',
+    'REST API requests can no longer contain passwords',
     'A database breach could expose users’ actual passwords',
-    'Login becomes too fast',
-    'REST APIs stop working'
+    'Passwords become difficult for administrators to display'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-23',
   categoryId: 'backend',
   text: 'What should a backend use to protect stored passwords?',
   options: [
-    'Encryption with a reversible key only',
-    'A strong password hashing algorithm with a salt',
-    'Base64 encoding',
-    'Plain text storage'
+    'Base64 encoding for each stored password value',
+    'Plain text storage inside a protected database table',
+    'Reversible encryption with one shared application key',
+    'A strong password hashing algorithm with a unique salt'
   ],
-  correctOptionIndex: 1,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-24',
   categoryId: 'backend',
   text: 'Your JWT contains user information and is sent with API requests. What problem does the token primarily solve?',
   options: [
+    'It automatically encrypts all application database records',
     'It allows the server to identify and authenticate the requester',
-    'It automatically encrypts the database',
-    'It replaces the frontend',
-    'It improves CSS rendering'
+    'It replaces the frontend application during authentication',
+    'It improves browser CSS rendering during authenticated requests'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-25',
   categoryId: 'backend',
   text: 'A user logs out, but an already-issued JWT remains valid until it expires. What is one common strategy for handling token invalidation?',
   options: [
-    'Use short-lived access tokens with refresh-token management or token revocation',
-    'Store the token permanently in the browser',
-    'Increase token size',
-    'Remove HTTPS'
+    'Use short-lived access tokens with refresh-token management',
+    'Store the token permanently inside the user’s browser',
+    'Increase the token size to prevent future authentication',
+    'Remove HTTPS from the authentication and API requests'
   ],
   correctOptionIndex: 0,
 },
@@ -1172,36 +1167,36 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your application allows an authenticated normal user to call an admin endpoint by manually changing the URL. What is missing?',
   options: [
+    'Browser routing',
+    'Image optimization',
     'Authorization checks',
-    'CSS validation',
-    'HTML routing',
-    'Image optimization'
+    'CSS validation'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-27',
   categoryId: 'backend',
   text: 'An attacker attempts to inject malicious SQL through a login form. Which backend practice helps prevent this?',
   options: [
-    'Parameterized queries or a properly configured ORM',
-    'Increasing the input field size',
-    'Storing SQL in cookies',
-    'Removing database indexes'
+    'Increase the input field size for login requests',
+    'Use parameterized queries or a properly configured ORM',
+    'Store SQL commands inside browser cookies',
+    'Remove database indexes from the affected tables'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-28',
   categoryId: 'backend',
   text: 'Your API sends authentication credentials over plain HTTP. What is the major risk?',
   options: [
-    'Credentials can potentially be intercepted during transmission',
-    'The API becomes RESTful',
-    'Database queries become faster',
-    'JSON becomes invalid'
+    'The API automatically becomes difficult to scale',
+    'Database queries become slower during authentication',
+    'JSON responses can no longer be returned by the API',
+    'Credentials can potentially be intercepted during transmission'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 
 {
@@ -1210,9 +1205,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'Your product API repeatedly queries the database for the same popular product. What problem can Redis caching help solve?',
   options: [
     'It can reduce repeated database queries and improve response time',
-    'It permanently replaces the database',
-    'It automatically fixes frontend bugs',
-    'It removes authentication requirements'
+    'It permanently replaces the primary database for all application data',
+    'It automatically fixes frontend bugs without changing backend logic',
+    'It removes authentication requirements from protected application routes'
   ],
   correctOptionIndex: 0,
 },
@@ -1221,36 +1216,36 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'A cached product price is changed in the database, but users continue receiving the old price from Redis. What problem is occurring?',
   options: [
-    'Cache invalidation or stale cache data',
-    'SQL injection',
     'DNS failure',
-    'WebSocket failure'
+    'SQL injection',
+    'WebSocket failure',
+    'Cache invalidation or stale cache data'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-31',
   categoryId: 'backend',
   text: 'You want cached data to automatically disappear after a certain period. Which Redis feature is useful?',
   options: [
-    'TTL/expiration',
     'Foreign keys',
-    'JSX',
-    'HTTP redirects'
+    'TTL or key expiration',
+    'HTTP redirects',
+    'GraphQL fragments'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-32',
   categoryId: 'backend',
   text: 'Your website receives a huge number of requests for a public leaderboard that changes every few minutes. Why might Redis be a good choice?',
   options: [
-    'Frequently requested data can be served from memory instead of querying the database every time',
-    'Redis converts REST APIs into GraphQL',
-    'Redis replaces HTTPS',
-    'Redis renders React components'
+    'Redis automatically converts REST APIs into GraphQL APIs',
+    'Redis replaces HTTPS communication between clients and servers',
+    'Frequently requested data can be served from memory',
+    'Redis automatically renders React components on the server'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-33',
@@ -1258,9 +1253,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'Your application stores user session information in Redis because several backend servers need access to the same sessions. What problem does this solve?',
   options: [
     'Shared session state across multiple application instances',
-    'Frontend component reuse',
-    'Database schema design',
-    'CSS responsiveness'
+    'Database schema design across unrelated application services',
+    'Frontend component reuse across different browser pages',
+    'CSS responsiveness across different screen sizes'
   ],
   correctOptionIndex: 0,
 },
@@ -1269,24 +1264,24 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your Redis cache goes down and your application immediately fails even though the primary database is still available. What architectural improvement would make the system more resilient?',
   options: [
-    'Treat the cache as an optimization and fall back to the database when appropriate',
-    'Remove the database',
-    'Store all database data only in Redis',
-    'Disable error handling'
+    'Store all primary database data only inside Redis',
+    'Remove the primary database and depend entirely on Redis',
+    'Treat the cache as an optimization and fall back to the database',
+    'Disable backend error handling whenever Redis becomes unavailable'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-35',
   categoryId: 'backend',
   text: 'You need to prevent multiple users from simultaneously processing the same resource in a distributed application. Which Redis capability could help?',
   options: [
-    'Distributed locking',
     'CSS variables',
+    'HTTP redirects',
     'HTML forms',
-    'HTTP redirects'
+    'Distributed locking'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 
 {
@@ -1294,12 +1289,12 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'A mobile application needs only a user’s name and profile image, but a REST endpoint returns 30 additional fields. What problem could GraphQL solve?',
   options: [
+    'Replace authentication across the complete application',
+    'Automatically encrypt all records stored in the database',
     'Allow the client to request only the fields it needs',
-    'Automatically encrypt the database',
-    'Replace authentication',
-    'Eliminate all backend logic'
+    'Eliminate all backend business logic from the application'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-37',
@@ -1307,9 +1302,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'Your frontend needs data from users, posts, and comments, requiring several REST requests. What GraphQL capability can reduce this problem?',
   options: [
     'A single query can request related data through the GraphQL schema',
-    'GraphQL removes databases',
-    'GraphQL converts HTTP into TCP',
-    'GraphQL eliminates authorization'
+    'GraphQL removes the need for databases behind the application',
+    'GraphQL converts normal HTTP communication directly into TCP',
+    'GraphQL automatically eliminates authorization requirements'
   ],
   correctOptionIndex: 0,
 },
@@ -1318,24 +1313,24 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'A GraphQL API allows clients to request extremely deeply nested relationships, causing expensive database operations. What should the backend consider?',
   options: [
-    'Query depth/complexity limits and efficient data fetching',
-    'Removing the schema',
-    'Disabling all queries',
-    'Returning HTML instead'
+    'Disable every GraphQL query from being processed by the server',
+    'Remove the GraphQL schema to prevent complex client requests',
+    'Return HTML instead of GraphQL responses for nested relationships',
+    'Use query depth or complexity limits with efficient data fetching'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-39',
   categoryId: 'backend',
   text: 'A GraphQL resolver fetches a user’s posts individually for 1,000 users, resulting in hundreds of database queries. Which problem is this commonly associated with?',
   options: [
+    'JWT expiration',
     'N+1 query problem',
     'DNS poisoning',
-    'CSS cascade problem',
-    'JWT expiration'
+    'CSS cascade problem'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-40',
@@ -1343,9 +1338,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'A GraphQL API needs to expose a new optional field without breaking existing clients. What is generally the safest approach?',
   options: [
     'Add the field while keeping existing fields available',
-    'Delete the existing field immediately',
-    'Change every existing field’s type',
-    'Require every client to upgrade immediately'
+    'Delete the existing field immediately after adding the new field',
+    'Change every existing field type at the same time',
+    'Require every existing client to upgrade immediately'
   ],
   correctOptionIndex: 0,
 },
@@ -1354,24 +1349,24 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your GraphQL API allows a user to query another user’s private information. What should be added to the resolver logic?',
   options: [
-    'Authorization checks',
-    'CSS middleware',
     'Browser routing',
-    'Image compression'
+    'CSS middleware',
+    'Image compression',
+    'Authorization checks'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-42',
   categoryId: 'backend',
   text: 'Your application has many different clients that need different representations of the same data. Why might GraphQL be useful?',
   options: [
+    'It removes the need for backend validation across all clients',
+    'It automatically creates database indexes for every requested field',
     'Clients can define the shape of the data they need',
-    'It removes the need for backend validation',
-    'It automatically creates database indexes',
-    'It eliminates network communication'
+    'It eliminates network communication between clients and servers'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 
 {
@@ -1379,34 +1374,34 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'You are building a chat application where messages should appear immediately without repeatedly polling the server. Which technology is most suitable?',
   options: [
-    'WebSockets',
     'FTP',
+    'SQL',
     'CSS',
-    'SQL'
+    'WebSockets'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-44',
   categoryId: 'backend',
   text: 'A stock dashboard needs to receive price updates from the server as soon as they occur. Why would WebSockets be useful?',
   options: [
-    'They maintain a persistent connection that allows real-time server-to-client communication',
-    'They require the client to refresh the page',
-    'They only work for static files',
-    'They replace the database'
+    'They replace the database used to store stock information',
+    'They maintain a persistent connection for real-time communication',
+    'They require the client to refresh the page for every update',
+    'They only work when serving static files from the backend'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-45',
   categoryId: 'backend',
   text: 'Your WebSocket server has thousands of connected users and one server instance becomes overloaded. What could help scale it?',
   options: [
-    'Multiple WebSocket servers with shared state/message distribution',
-    'Add more HTML elements',
-    'Disable persistent connections',
-    'Store messages only in browser variables'
+    'Use multiple WebSocket servers with shared state or message distribution',
+    'Disable persistent connections so every message starts a new connection',
+    'Store all real-time messages only inside browser variables',
+    'Add additional HTML elements to distribute the connection workload'
   ],
   correctOptionIndex: 0,
 },
@@ -1415,36 +1410,36 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Multiple WebSocket servers are running, and a message received by server A needs to reach users connected to server B. What can help distribute the message?',
   options: [
-    'Redis Pub/Sub or another message broker',
+    'HTML forms',
     'CSS Grid',
-    'LocalStorage only',
-    'HTML forms'
+    'Redis Pub/Sub or another message broker',
+    'LocalStorage used independently by every browser'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-47',
   categoryId: 'backend',
   text: 'A user’s internet connection temporarily drops while using a WebSocket application. What should the client typically do?',
   options: [
-    'Detect disconnection and attempt reconnection with appropriate backoff',
-    'Delete the entire database',
-    'Restart the backend manually',
-    'Permanently disable WebSockets'
+    'Permanently disable WebSockets after the first connection failure',
+    'Delete the application database when the connection disappears',
+    'Restart the backend server manually whenever a client disconnects',
+    'Detect disconnection and retry with an appropriate backoff strategy'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-48',
   categoryId: 'backend',
   text: 'A WebSocket connection remains open for a very long time and the server needs to determine whether the client is still reachable. What mechanism can help?',
   options: [
-    'Ping/pong heartbeat messages',
-    'CSS animations',
     'SQL joins',
-    'HTTP redirects'
+    'Ping/pong heartbeat messages',
+    'HTTP redirects',
+    'CSS animations'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 
 {
@@ -1453,9 +1448,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'Your Spring Boot application has database, business logic, and HTTP handling inside the same controller classes. What would improve maintainability?',
   options: [
     'Separate controllers, services, and repositories',
-    'Put everything into one controller',
-    'Remove dependency injection',
-    'Move business logic into HTML'
+    'Move business logic from controllers into HTML pages',
+    'Remove dependency injection from the Spring Boot application',
+    'Put every backend responsibility inside one controller class'
   ],
   correctOptionIndex: 0,
 },
@@ -1464,36 +1459,36 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'A Spring Boot controller directly creates database repository objects using new. What Spring feature could improve this design?',
   options: [
-    'Dependency injection',
-    'CSS modules',
     'Browser caching',
-    'GraphQL fragments'
+    'GraphQL fragments',
+    'CSS modules',
+    'Dependency injection'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-51',
   categoryId: 'backend',
   text: 'Multiple Spring Boot services need the same configuration values, such as database URLs, without hardcoding them into Java classes. What should you use?',
   options: [
+    'URL fragments',
     'Externalized configuration',
-    'HTML attributes',
     'CSS variables',
-    'URL fragments'
+    'HTML attributes'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-52',
   categoryId: 'backend',
   text: 'A Spring Boot endpoint throws different exceptions, and each controller handles them differently. What would create more consistent API error responses?',
   options: [
-    'Global exception handling using mechanisms such as @ControllerAdvice',
-    'Duplicate controllers',
-    'More frontend validation',
-    'Disable exception handling'
+    'Disable exception handling throughout the backend',
+    'Add duplicate controllers for each exception type',
+    'Use global exception handling such as @ControllerAdvice',
+    'Move exception handling into frontend validation logic'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-53',
@@ -1502,8 +1497,8 @@ export const QUESTIONS: Record<string, Question[]> = {
   options: [
     'Database connection pooling',
     'HTML routing',
-    'CSS caching',
-    'JWT payload size'
+    'JWT payload size',
+    'CSS caching'
   ],
   correctOptionIndex: 0,
 },
@@ -1512,34 +1507,34 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your Spring Boot application receives thousands of requests, and several requests execute the same expensive database query. What could improve performance?',
   options: [
-    'Add appropriate caching',
-    'Remove database indexes',
-    'Disable transactions',
-    'Increase JSON indentation'
+    'Disable transactions for all database operations',
+    'Increase the amount of JSON indentation in responses',
+    'Remove database indexes from frequently queried tables',
+    'Add appropriate caching for repeatedly requested data'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-55',
   categoryId: 'backend',
   text: 'A Spring Boot service updates multiple database records, and failure halfway through would leave inconsistent data. What should be considered?',
   options: [
-    'A database transaction',
-    'A CSS transaction',
+    'A browser cookie',
     'A WebSocket connection',
-    'A browser cookie'
+    'A database transaction',
+    'A CSS transaction'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-56',
   categoryId: 'backend',
   text: 'Your Spring Boot API exposes an endpoint that should only be accessible to administrators. What should enforce this?',
   options: [
-    'Authorization rules/security configuration',
-    'URL naming alone',
-    'CSS classes',
-    'Frontend buttons only'
+    'Authorization rules and backend security configuration',
+    'Frontend buttons that hide the endpoint from normal users',
+    'URL naming conventions that indicate administrator-only access',
+    'CSS classes that prevent normal users from opening the endpoint'
   ],
   correctOptionIndex: 0,
 },
@@ -1549,24 +1544,24 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your application works correctly with 100 users but becomes slow with 100,000 users. What should you investigate first?',
   options: [
-    'Bottlenecks such as database queries, CPU, memory, network, and application architecture',
-    'Change all button colors',
-    'Add more frontend animations',
-    'Remove logging completely'
+    'Add more frontend animations to improve perceived performance',
+    'Remove logging completely before identifying the actual bottleneck',
+    'Investigate database, CPU, memory, network, and architecture bottlenecks',
+    'Change the colors of application buttons to reduce processing time'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-58',
   categoryId: 'backend',
   text: 'A database query becomes increasingly slow as the table grows from thousands to millions of records. What should you investigate?',
   options: [
-    'Query execution plans and appropriate indexes',
-    'CSS specificity',
-    'HTTP method names',
-    'JWT formatting'
+    'JWT formatting used by authenticated application requests',
+    'Query execution plans and appropriate database indexes',
+    'HTTP method names used by the API endpoints',
+    'CSS specificity used by the frontend application'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-59',
@@ -1574,9 +1569,9 @@ export const QUESTIONS: Record<string, Question[]> = {
   text: 'Two users attempt to purchase the last available product at almost exactly the same time. What backend problem must be handled carefully?',
   options: [
     'Race condition and transactional consistency',
-    'CSS inheritance',
-    'HTML validation',
-    'Browser rendering'
+    'Browser rendering during the purchase request',
+    'CSS inheritance between product components',
+    'HTML validation performed by the product page'
   ],
   correctOptionIndex: 0,
 },
@@ -1585,46 +1580,46 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your API performs multiple database operations that must either all succeed or all fail together. What should you use?',
   options: [
-    'A database transaction',
-    'Separate browser tabs',
+    'HTTP caching',
     'Redis TTL only',
-    'HTTP caching'
+    'Separate browser tabs',
+    'A database transaction'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-61',
   categoryId: 'backend',
   text: 'Your backend receives the same request multiple times because the client retries after a network timeout. For operations such as payments, what concept can prevent duplicate processing?',
   options: [
+    'WebSocket heartbeat',
     'Idempotency',
-    'CSS inheritance',
     'GraphQL fragments',
-    'WebSocket heartbeat'
+    'CSS inheritance'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-62',
   categoryId: 'backend',
   text: 'Your application sends an email whenever an order is placed, but slow email delivery makes the order API slow. What would improve the architecture?',
   options: [
-    'Process email sending asynchronously through a queue',
-    'Make the user wait for the email',
-    'Store the email in CSS',
-    'Remove order validation'
+    'Store the email-processing logic inside CSS',
+    'Make the user wait for email delivery before completing the order',
+    'Process email sending asynchronously through a background queue',
+    'Remove order validation so email processing can finish faster'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-63',
   categoryId: 'backend',
   text: 'Your backend has multiple services that need to communicate asynchronously without waiting for each other to finish. What architecture is suitable?',
   options: [
-    'Message queue/event-driven communication',
-    'Only synchronous database calls',
-    'CSS events',
-    'HTML redirects'
+    'Message queues or event-driven communication between services',
+    'Only synchronous database calls between every backend service',
+    'HTML redirects between each backend application service',
+    'CSS events connecting independent backend service processes'
   ],
   correctOptionIndex: 0,
 },
@@ -1633,34 +1628,34 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your API is deployed across multiple servers, but users are randomly logged out when requests move between servers. What is a likely problem?',
   options: [
-    'Session state is stored locally on individual servers',
-    'CSS is not loaded',
-    'REST does not support authentication',
-    'JSON cannot be used across servers'
+    'JSON cannot be used consistently across multiple backend servers',
+    'The frontend CSS is not loaded on every server response',
+    'REST APIs cannot support authentication across multiple servers',
+    'Session state is stored locally on individual application servers'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-65',
   categoryId: 'backend',
   text: 'Your API is receiving huge amounts of traffic from automated clients. Before scaling the entire infrastructure, what should you consider?',
   options: [
-    'Rate limiting, caching, request validation, and traffic analysis',
-    'Adding more frontend components',
-    'Removing API authentication',
-    'Increasing image resolution'
+    'Increase image resolution throughout the frontend application',
+    'Remove API authentication so automated requests are processed faster',
+    'Use rate limiting, caching, validation, and traffic analysis',
+    'Add more frontend components to distribute incoming API traffic'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 2,
 },
 {
   id: 'be-66',
   categoryId: 'backend',
   text: 'A backend service depends on another service that occasionally becomes unavailable. Requests start hanging and eventually consume all available connections. Which resilience pattern can help?',
   options: [
-    'Timeout and circuit breaker',
-    'Infinite retries',
-    'More database tables',
-    'CSS fallback'
+    'Use timeouts and a circuit breaker for the failing dependency',
+    'Use infinite retries until the dependent service becomes available',
+    'Add more database tables to compensate for the unavailable service',
+    'Use a CSS fallback when backend service requests become unavailable'
   ],
   correctOptionIndex: 0,
 },
@@ -1669,34 +1664,34 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your API is used by several frontend applications, and changing a response field unexpectedly breaks older clients. What should the backend team consider?',
   options: [
-    'API versioning and backward-compatible changes',
-    'Randomly changing response formats',
-    'Removing validation',
-    'Disabling HTTP status codes'
+    'Remove validation so clients can handle arbitrary response structures',
+    'Use API versioning and backward-compatible response changes',
+    'Randomly change response formats so clients adapt automatically',
+    'Disable HTTP status codes to avoid compatibility problems'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 1,
 },
 {
   id: 'be-68',
   categoryId: 'backend',
   text: 'Your backend logs contain passwords, authentication tokens, and sensitive user information. What should you do?',
   options: [
-    'Remove or redact sensitive information from logs',
-    'Store even more sensitive information in logs',
-    'Make logs publicly accessible',
-    'Disable authentication'
+    'Make application logs publicly accessible for easier debugging',
+    'Store additional sensitive information to improve debugging detail',
+    'Disable authentication so sensitive credentials are no longer logged',
+    'Remove or redact sensitive information before writing logs'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
 {
   id: 'be-69',
   categoryId: 'backend',
   text: 'Your API becomes difficult to debug because you cannot determine which request caused an error across several backend services. What could improve observability?',
   options: [
-    'Correlation/request IDs and centralized structured logging',
-    'More CSS comments',
-    'Larger JWT payloads',
-    'More frontend routes'
+    'Add correlation IDs with centralized structured logging',
+    'Add more frontend routes to identify backend requests',
+    'Increase JWT payload sizes to contain more debugging information',
+    'Add more CSS comments around frontend API calls'
   ],
   correctOptionIndex: 0,
 },
@@ -1705,12 +1700,12 @@ export const QUESTIONS: Record<string, Question[]> = {
   categoryId: 'backend',
   text: 'Your application has REST APIs, GraphQL queries, WebSocket connections, Redis caching, and multiple backend services. Users report intermittent slow responses. What would be the most systematic first step?',
   options: [
-    'Measure the system using logs, metrics, tracing, and profiling to identify the actual bottleneck',
-    'Rewrite the entire backend immediately',
-    'Add Redis to every function',
-    'Increase the frontend bundle size'
+    'Rewrite the entire backend before measuring the existing system',
+    'Add Redis to every backend function regardless of its workload',
+    'Increase the frontend bundle size to improve backend responsiveness',
+    'Use logs, metrics, tracing, and profiling to identify the bottleneck'
   ],
-  correctOptionIndex: 0,
+  correctOptionIndex: 3,
 },
   ],
   database: [
