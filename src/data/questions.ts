@@ -11,34 +11,39 @@ export const CATEGORIES: Category[] = [
 
 export const QUESTIONS: Record<string, Question[]> = {
   frontend: [
-    {
-      id: 'fe-1',
-      categoryId: 'frontend',
-      text: 'Which of the following hooks should be used for side effects in React?',
-      options: ['useState', 'useEffect', 'useMemo', 'useCallback'],
-      correctOptionIndex: 1,
-    },
-      {
+  {
+    id: 'fe-1',
+    categoryId: 'frontend',
+    text: 'You create a React component as `function profile() { return <div>Profile</div> }` and render `<profile />`. What is the most likely problem?',
+    options: [
+      'React treats `profile` as a regular HTML or DOM tag',
+      'React converts `profile` into a component automatically',
+      'React prevents the component from receiving any props',
+      'React requires every component to use arrow functions'
+    ],
+    correctOptionIndex: 0,
+  },
+  {
     id: 'fe-2',
     categoryId: 'frontend',
     text: 'A large project has 30 pages and each page contains slightly different global button styles. What approach would best improve long-term maintainability?',
     options: [
-      'Create a shared button system with reusable styles and variants',
-      'Copy the button CSS into every page',
-      'Put all styles into one extremely large component file',
-      'Use inline styles everywhere'
+      'Copy the same button styles into every page',
+      'Create a shared button system with reusable styles',
+      'Place every button style inside one huge file',
+      'Use separate inline styles for every button'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-3',
     categoryId: 'frontend',
     text: 'An e-commerce homepage uses several JavaScript-driven animations that run continuously while the user scrolls. The page feels laggy on mobile. What should you investigate first?',
     options: [
-      'Increase the animation duration to several seconds',
-      'Add more React state updates during scrolling',
-      'Replace every animation with a database request',
-      'Check whether animations trigger expensive layout/paint work and prefer CSS transforms/opacity'
+      'Increase the duration of every animation slightly',
+      'Add additional React state during scrolling',
+      'Replace the animations with database requests',
+      'Check layout work and prefer transform or opacity'
     ],
     correctOptionIndex: 3,
   },
@@ -47,70 +52,70 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React list contains 1,000 products. Every time the user types into a search box, all product components appear to re-render. What is the most appropriate first optimization?',
     options: [
-      'Remove React state completely',
-      'Filter the data efficiently and avoid unnecessary component re-renders',
-      'Convert every product into an image',
-      'Store every product in a separate browser tab'
+      'Remove React state from the product components',
+      'Convert each product into a separate image',
+      'Filter efficiently and prevent unnecessary re-renders',
+      'Store every product inside a separate browser tab'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-5',
     categoryId: 'frontend',
     text: 'A component receives an object prop created inline on every parent render. A memoized child still re-renders. Why?',
     options: [
-      'React automatically deep-compares all objects',
-      'The object gets a new reference on every render',
-      'React.memo does not work with objects',
-      'Objects cannot be passed as props'
+      'React.memo cannot work with object properties',
+      'Objects cannot normally be passed through React props',
+      'React deeply compares every object before rendering',
+      'The object receives a new reference on every render'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-6',
     categoryId: 'frontend',
     text: 'A developer uses `useEffect` to calculate `totalPrice` from existing state on every render. What would usually be a better approach?',
     options: [
-      'Use another useEffect to calculate the value twice',
-      'Use useRef for every calculated value',
-      'Calculate the derived value directly during rendering or with useMemo when expensive',
-      'Store the total in localStorage'
+      'Calculate the derived value directly when needed',
+      'Store the calculated value permanently in localStorage',
+      'Use another effect to calculate the value again',
+      'Use useRef to store every calculated value'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-7',
     categoryId: 'frontend',
     text: 'A search input sends an API request on every keystroke and causes unnecessary network traffic. What is the best solution?',
     options: [
-      'Use setInterval for every character',
-      'Disable the input',
-      'Debounce the search request',
-      'Send two requests per keystroke'
+      'Disable the search field during every keystroke',
+      'Use a debounce before sending the search request',
+      'Send multiple requests for each entered character',
+      'Use setInterval to repeatedly trigger every search'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-8',
     categoryId: 'frontend',
     text: 'A user clicks "Submit" twice quickly and two orders are created. Which frontend improvement would help prevent this situation?',
     options: [
-      'Clear the entire application state',
-      'Disable the submit action while the request is pending',
-      'Add more CSS animations',
-      'Increase the button font size'
+      'Increase the submit button font size slightly',
+      'Add additional animations to the submit button',
+      'Disable submission while the request remains pending',
+      'Clear the entire application state after submitting'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-9',
     categoryId: 'frontend',
     text: 'A React component fetches data inside useEffect. The user navigates away before the request finishes. Why might cancellation be useful?',
     options: [
-      'It increases API response size',
-      'It converts REST into GraphQL',
-      'It makes CSS load faster',
-      'It prevents unnecessary work and avoids updating an unneeded component'
+      'It makes the API response considerably larger',
+      'It automatically changes REST requests into GraphQL',
+      'It makes the applications CSS load considerably faster',
+      'It prevents unnecessary work after the component is gone'
     ],
     correctOptionIndex: 3,
   },
@@ -119,10 +124,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A dashboard has several components that all need the logged-in users information. What is usually cleaner than passing the user through many unrelated components?',
     options: [
-      'Use appropriate shared state such as Context or a state-management solution',
-      'Store the user in a CSS variable',
-      'Duplicate the user data in every component',
-      'Create a separate HTML page for each component'
+      'Use shared state such as Context or state management',
+      'Duplicate the same user data inside every component',
+      'Store the user information inside CSS variables',
+      'Create separate HTML pages for every component'
     ],
     correctOptionIndex: 0,
   },
@@ -132,22 +137,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React list uses the array index as the key. Items can be inserted or removed from the middle of the list. What problem can occur?',
     options: [
-      'CSS will stop working',
-      'React will automatically convert the list to a table',
-      'React may associate component state with the wrong item',
-      'The browser will delete the entire DOM'
+      'React may associate state with the wrong list item',
+      'The browser automatically removes the entire DOM',
+      'React automatically converts the list into a table',
+      'The browser completely stops applying the CSS'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-12',
     categoryId: 'frontend',
     text: 'A component has deeply nested conditional rendering that is becoming difficult to understand. What would improve maintainability?',
     options: [
-      'Duplicate the component several times',
-      'Break the UI into smaller meaningful components and simplify state/conditions',
-      'Move the conditions into CSS animations',
-      'Put all conditions into one giant ternary'
+      'Put all conditions inside one extremely large ternary',
+      'Break the UI into smaller meaningful components and conditions',
+      'Duplicate the component several times across the application',
+      'Move the conditions into separate CSS animation rules'
     ],
     correctOptionIndex: 1,
   },
@@ -156,36 +161,36 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React component stores `isLoggedIn` and also stores `user` separately, even though `isLoggedIn` can be determined from `user`. What problem can this create?',
     options: [
-      'State objects cannot contain strings',
-      'The application may have conflicting sources of truth',
-      'The browser will automatically refresh',
-      'React cannot store booleans'
+      'React cannot store boolean values inside component state',
+      'The browser may automatically refresh after every update',
+      'The application can develop conflicting sources of truth',
+      'React state objects cannot contain ordinary string values'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-14',
     categoryId: 'frontend',
     text: 'A component needs to remember a DOM element but changing that reference should not trigger a re-render. Which hook fits this requirement?',
     options: [
-      'useMemo',
-      'useRef',
-      'useEffect',
-      'useState'
+      'useState is designed for storing changing DOM references',
+      'useEffect is designed for storing persistent DOM references',
+      'useMemo is designed for storing mutable DOM references',
+      'useRef stores the reference without causing a re-render'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-15',
     categoryId: 'frontend',
     text: 'A developer adds `useCallback` to every function in an application hoping to make everything faster. What is the main issue with this approach?',
     options: [
-      'useCallback prevents functions from executing',
-      'useCallback only works in CSS',
-      'Memoization has its own cost and is useful mainly when referential stability matters',
-      'useCallback always makes applications slower'
+      'Memoization adds overhead and is useful when stability matters',
+      'useCallback completely prevents functions from executing normally',
+      'useCallback can only be used inside CSS-related components',
+      'useCallback always makes every application significantly slower'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
 
   {
@@ -193,34 +198,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A form contains email, password, and confirm-password fields. The submit button should remain disabled until all fields are valid. Where should validation logic primarily live?',
     options: [
-      'In reusable validation logic that can be evaluated from the form state',
-      'Only in the browser title',
-      'Only inside CSS',
-      'Inside an SVG'
+      'Only inside CSS rules associated with the input fields',
+      'Inside reusable validation logic based on the form state',
+      'Inside an SVG attached to the form submit button',
+      'Only inside the browser document title element'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-17',
     categoryId: 'frontend',
     text: 'A form reloads the page whenever the user clicks Submit in a React application. What is likely missing?',
     options: [
-      'React.memo()',
-      'window.reload()',
-      'event.preventDefault()',
-      'useMemo()'
+      'The form is missing a React.memo optimization call',
+      'The form is missing a window.reload invocation',
+      'The form is missing a useMemo calculation hook',
+      'The submit handler is missing event.preventDefault()'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-18',
     categoryId: 'frontend',
     text: 'A form displays an error message only after the user has interacted with the field. What state is useful for this behavior?',
     options: [
-      'Only a loading state',
-      'A CSS animation state',
-      'A touched/visited state',
-      'Only a theme state'
+      'A loading state that tracks the current network request',
+      'A theme state that tracks the current visual appearance',
+      'A touched state that tracks whether the field was visited',
+      'An animation state that tracks whether the field is moving'
     ],
     correctOptionIndex: 2,
   },
@@ -229,24 +234,24 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A login form stores the password in React state and logs the entire state object while debugging. What is the main concern?',
     options: [
-      'State objects cannot contain strings',
-      'Password fields require SVG',
+      'React cannot safely store ordinary password strings in state',
       'Passwords may accidentally appear in logs or debugging tools',
-      'React cannot handle password inputs'
+      'Password inputs require an SVG before they can work correctly',
+      'React state objects cannot contain values from password fields'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-20',
     categoryId: 'frontend',
     text: 'A form has 15 fields and validation becomes difficult to maintain because every input has separate validation code. What is the better approach?',
     options: [
-      'Use CSS selectors as the only validation mechanism',
-      'Centralize and reuse validation rules',
-      'Validate only the first field',
-      'Remove validation'
+      'Centralize validation rules so the same logic can be reused',
+      'Remove most validation rules to simplify the form structure',
+      'Validate only the first input before allowing submission',
+      'Use CSS selectors as the primary validation mechanism'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
 
   {
@@ -254,46 +259,46 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page has a navigation link styled as a `<div>` with an onClick handler. Keyboard users cannot easily activate it. What is the better solution?',
     options: [
-      'Add an SVG behind the div',
-      'Use a semantic `<a>` or `<button>` depending on the action',
-      'Make the div larger',
-      'Add more box-shadow'
+      'Make the clickable div larger for keyboard users',
+      'Add an SVG behind the div to improve its semantics',
+      'Use a semantic anchor or button for the intended action',
+      'Add additional box shadows around the clickable div'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-22',
     categoryId: 'frontend',
     text: 'A form field has a placeholder saying "Enter email" but no visible label. What is the main accessibility concern?',
     options: [
-      'The field may lack a persistent accessible name/label',
-      'CSS cannot style placeholders',
-      'Placeholders cannot contain text',
-      'Email inputs cannot have placeholders'
+      'Email inputs are not allowed to contain placeholder text',
+      'CSS cannot style placeholders consistently across browsers',
+      'The field may lack a persistent accessible name or label',
+      'Placeholder attributes cannot contain ordinary descriptive text'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-23',
     categoryId: 'frontend',
     text: 'A modal opens when a user clicks a button. For accessibility, what should happen to keyboard focus?',
     options: [
-      'Focus should move to the footer',
-      'Focus should be removed from the document',
-      'Focus should generally move into the modal and be managed appropriately',
-      'Focus should always move to the browser address bar'
+      'Focus should generally move into the modal and be managed',
+      'Focus should always move to the browser address bar',
+      'Focus should be removed completely from the document',
+      'Focus should automatically move toward the page footer'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-24',
     categoryId: 'frontend',
     text: 'A decorative SVG icon is announced by a screen reader and makes the page confusing. What should you consider?',
     options: [
-      'Add more animation',
+      'Replace the SVG with JavaScript-generated visual elements',
       'Hide decorative SVGs from assistive technology when appropriate',
-      'Make every SVG interactive',
-      'Replace the SVG with JavaScript'
+      'Add more animation so the SVG becomes visually obvious',
+      'Make every decorative SVG interactive for screen readers'
     ],
     correctOptionIndex: 1,
   },
@@ -302,12 +307,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'An image contains important information, but its alt attribute is empty. What should be done?',
     options: [
-      'Replace the image with an animation',
-      'Provide meaningful alternative text describing the important information',
-      'Keep alt empty because all images should have empty alt',
-      'Put the description only in CSS'
+      'Keep alt empty because all images should have empty alternatives',
+      'Put the important image description only inside CSS content',
+      'Replace the image with an animated version containing the information',
+      'Provide meaningful alternative text describing the important information'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 3,
   },
 
   {
@@ -315,22 +320,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A CSS animation changes width from 100px to 500px every frame and causes visible jank. Which properties are generally safer for smooth animations?',
     options: [
-      'margin and padding',
-      'transform and opacity',
-      'width and height',
-      'top and left only'
+      'Use width and height properties for the animation instead',
+      'Use margin and padding properties for the animation instead',
+      'Use transform and opacity properties for smoother animations',
+      'Use top and left properties for the animation instead'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-27',
     categoryId: 'frontend',
     text: 'A card should smoothly move 100px to the right when hovered. Which approach is generally preferable for performance?',
     options: [
-      'Use transform: translateX()',
-      'Change the DOM structure every frame',
-      'Use JavaScript to modify the HTML text',
-      'Change margin-left repeatedly'
+      'Use transform: translateX() to move the card visually',
+      'Change margin-left repeatedly during the hover animation',
+      'Modify the DOM structure during every animation frame',
+      'Use JavaScript to repeatedly modify the HTML content'
     ],
     correctOptionIndex: 0,
   },
@@ -339,22 +344,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page contains a scroll animation that runs JavaScript on every scroll event and becomes sluggish. What is a good first improvement?',
     options: [
-      'Disable browser scrolling',
-      'Use CSS where possible and throttle/requestAnimationFrame expensive JavaScript work',
-      'Increase the number of DOM nodes',
-      'Run even more code on every scroll event'
+      'Increase the amount of JavaScript executed during scrolling',
+      'Disable browser scrolling so the animation cannot run',
+      'Increase the number of DOM nodes used by the animation',
+      'Use CSS where possible and throttle expensive scroll work'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-29',
     categoryId: 'frontend',
     text: 'A website uses large JavaScript animations for a simple fade-in effect. What is usually the better choice?',
     options: [
-      'Use React state every frame',
-      'Use CSS transitions/animations when they are sufficient',
-      'Use a WebSocket for the fade',
-      'Create a new DOM node every frame'
+      'Create a new DOM node for every animation frame',
+      'Use CSS transitions or animations when they are sufficient',
+      'Use React state updates for every animation frame',
+      'Use a WebSocket connection to control the fade effect'
     ],
     correctOptionIndex: 1,
   },
@@ -363,12 +368,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A user has enabled reduced motion in their operating system. How should a frontend application respond?',
     options: [
-      'Force all animations to run',
-      'Ignore the setting',
-      'Respect prefers-reduced-motion and reduce or disable non-essential motion',
-      'Increase animation speed'
+      'Increase animation speed so the effect finishes sooner',
+      'Force every animation to run regardless of user preference',
+      'Ignore the operating system preference completely',
+      'Respect prefers-reduced-motion and reduce unnecessary motion'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
 
   {
@@ -376,10 +381,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'You use Motion to animate a list when items are added and removed. Which capability is particularly useful for making removed items animate out?',
     options: [
-      'useId',
-      'AnimatePresence',
-      'dangerouslySetInnerHTML',
-      'localStorage'
+      'Use localStorage to preserve the removed list elements',
+      'Use AnimatePresence to handle exiting animated elements',
+      'Use useId to generate identifiers for removed list elements',
+      'Use dangerouslySetInnerHTML to animate removed list elements'
     ],
     correctOptionIndex: 1,
   },
@@ -388,10 +393,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A Motion animation should start only after a component enters the viewport. Which concept is most appropriate?',
     options: [
-      'Form serialization',
-      'CSS specificity',
-      'Viewport-based animation triggering',
-      'Database indexing'
+      'Use database indexing to detect viewport visibility',
+      'Use form serialization to detect viewport visibility',
+      'Use viewport-based animation triggering for the component',
+      'Use CSS specificity rules to detect viewport visibility'
     ],
     correctOptionIndex: 2,
   },
@@ -400,34 +405,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A developer creates a spring animation with extremely high stiffness and low damping. What visual result is most likely?',
     options: [
-      'The element becomes completely static',
-      'The element may oscillate or feel overly bouncy',
-      'The element becomes inaccessible',
-      'The browser disables JavaScript'
+      'The element may oscillate or feel excessively bouncy',
+      'The element will automatically become completely static',
+      'The browser will disable JavaScript during the animation',
+      'The animated element will automatically become inaccessible'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-34',
     categoryId: 'frontend',
     text: 'A page uses dozens of complex Motion animations simultaneously and performance drops on low-end devices. What is the best design decision?',
     options: [
-      'Reduce unnecessary animations and prioritize lightweight transform/opacity animations',
-      'Add more React state',
-      'Increase the number of animated elements',
-      'Animate everything more aggressively'
+      'Increase the number of animated elements across the page',
+      'Add more React state to coordinate every animation',
+      'Animate everything more aggressively to finish sooner',
+      'Reduce unnecessary motion and prioritize efficient transforms'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-35',
     categoryId: 'frontend',
     text: 'A button changes its width during a hover animation, causing nearby content to jump. What would prevent most of this layout shift?',
     options: [
-      'Force a page reload',
-      'Use a larger font',
-      'Animate transform/scale or reserve the required layout space',
-      'Add more margins dynamically'
+      'Increase the font size so the width change appears smaller',
+      'Add additional margins whenever the button changes width',
+      'Animate transform or scale instead of changing layout dimensions',
+      'Force a complete page reload after every hover animation'
     ],
     correctOptionIndex: 2,
   },
@@ -437,10 +442,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A dashboard is responsive on desktop but overflows horizontally on mobile because a child has a fixed width of 900px. What should you investigate?',
     options: [
-      'Add more JavaScript',
-      'Use responsive sizing constraints such as max-width and flexible layouts',
-      'Remove all CSS',
-      'Increase the fixed width to 1200px'
+      'Increase the fixed child width to approximately 1200px',
+      'Use responsive sizing constraints and flexible layout behavior',
+      'Remove all CSS rules affecting the responsive dashboard',
+      'Add additional JavaScript to manually position the child'
     ],
     correctOptionIndex: 1,
   },
@@ -449,46 +454,46 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A CSS rule `.card p` unexpectedly overrides a component-specific paragraph style. What should you investigate first?',
     options: [
-      'TypeScript generics',
-      'CSS specificity and source order',
-      'SVG viewBox',
-      'React state'
+      'Investigate CSS specificity and the order of style rules',
+      'Investigate the React state used by the paragraph component',
+      'Investigate the SVG viewBox used somewhere on the page',
+      'Investigate the TypeScript generic used by the component'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-38',
     categoryId: 'frontend',
     text: 'A project has repeated CSS values such as the same spacing, radius, and brand colors in dozens of files. What would make the design system easier to maintain?',
     options: [
-      'Move all values into JavaScript strings',
-      'Use CSS custom properties/design tokens',
-      'Remove responsive styles',
-      'Duplicate the values more consistently'
+      'Duplicate the same values more consistently across files',
+      'Move every design value into separate JavaScript strings',
+      'Use CSS custom properties or shared design tokens',
+      'Remove responsive styles so fewer values need maintenance'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-39',
     categoryId: 'frontend',
     text: 'Two elements overlap unexpectedly because one has a higher z-index but still appears behind another. What should you investigate?',
     options: [
-      'Stacking contexts and positioning',
-      'TypeScript generics',
-      'Form validation',
-      'React hooks'
+      'Investigate the React hooks used by both overlapping elements',
+      'Investigate the stacking contexts and positioning rules',
+      'Investigate the form validation logic on the page',
+      'Investigate the TypeScript types assigned to each element'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-40',
     categoryId: 'frontend',
     text: 'A CSS layout uses many absolute positions and breaks whenever text becomes longer. What layout strategy would usually be more resilient?',
     options: [
-      'Hardcode every text width',
-      'Use JavaScript to calculate every position',
-      'Use more absolute positioning',
-      'Use Flexbox/Grid for structural layout'
+      'Use JavaScript to calculate every element position dynamically',
+      'Hardcode every text width so positions remain predictable',
+      'Use additional absolute positioning for the remaining elements',
+      'Use Flexbox or Grid for the main structural layout'
     ],
     correctOptionIndex: 3,
   },
@@ -498,58 +503,58 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A button contains only a hamburger SVG icon and has no accessible name. What should you add?',
     options: [
-      'A database ID',
-      'An accessible label such as aria-label or visible text',
-      'More CSS animation',
-      'A larger SVG'
+      'Add an accessible label such as aria-label or visible text',
+      'Add a larger SVG so the icon becomes easier to recognize',
+      'Add more CSS animation so the button becomes noticeable',
+      'Add a database ID so assistive technology can identify it'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-42',
     categoryId: 'frontend',
     text: 'An SVG logo looks blurry when displayed at different sizes because it was converted into a low-resolution PNG. What advantage would an SVG provide?',
     options: [
-      'It stores database records',
-      'It automatically improves JavaScript performance',
-      'It scales without the same pixelation associated with raster images',
-      'It eliminates CSS'
+      'It automatically improves JavaScript execution performance',
+      'It stores database records more efficiently than a PNG',
+      'It removes the need for CSS styling across the application',
+      'It scales without the same pixelation associated with raster images'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-43',
     categoryId: 'frontend',
     text: 'An SVG illustration contains dozens of unnecessary path elements and significantly increases DOM complexity. What could improve performance?',
     options: [
-      'Convert every path into React state',
-      'Optimize/simplify the SVG',
-      'Animate every path continuously',
-      'Add more paths'
+      'Add more path elements to simplify browser rendering',
+      'Animate every path continuously to improve visual performance',
+      'Optimize and simplify the SVG path structure',
+      'Convert every SVG path into a separate React state value'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-44',
     categoryId: 'frontend',
     text: 'You want to change the color of an SVG icon using CSS, but the SVG uses hardcoded `fill="#000"`. What could make it easier to theme?',
     options: [
-      'Remove the SVG viewBox',
-      'Use currentColor or CSS-compatible fill values',
-      'Use useEffect to change every pixel',
-      'Convert it to SQL'
+      'Use currentColor or another CSS-compatible fill value',
+      'Convert the SVG into SQL data before applying the color',
+      'Remove the SVG viewBox so CSS can control the shape',
+      'Use useEffect to manually change every SVG pixel'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-45',
     categoryId: 'frontend',
     text: 'An SVG is purely decorative and should not receive keyboard focus. What should you consider?',
     options: [
-      'Making every path clickable',
-      'Adding tabindex="0"',
-      'Appropriate accessibility attributes such as aria-hidden when applicable',
-      'Adding a form action'
+      'Add tabindex="0" so the decorative SVG can receive focus',
+      'Make every SVG path clickable for keyboard navigation',
+      'Use appropriate accessibility attributes such as aria-hidden',
+      'Add a form action so the SVG becomes a semantic control'
     ],
     correctOptionIndex: 2,
   },
@@ -559,10 +564,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A TypeScript function accepts either a string ID or a number ID. What is the most appropriate type?',
     options: [
-      'unknown[]',
-      'string | number',
-      'any',
-      'never'
+      'Use `any` because the function accepts multiple possible values',
+      'Use `string | number` because both values are explicitly supported',
+      'Use `never` because the function accepts more than one value',
+      'Use `unknown[]` because IDs can have different primitive types'
     ],
     correctOptionIndex: 1,
   },
@@ -571,48 +576,48 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React component receives a `variant` prop that should only be `"primary"` or `"secondary"`. How can TypeScript help prevent invalid values?',
     options: [
-      'Use boolean only',
-      'Remove the prop type',
-      'Use a literal union type',
-      'Use any'
+      'Use a literal union type containing the allowed variant values',
+      'Use `any` so the component accepts all possible variant values',
+      'Remove the prop type so React handles the values automatically',
+      'Use a boolean because the component has two possible variants'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-48',
     categoryId: 'frontend',
     text: 'A API response is typed as `any`, and a developer accesses `response.user.profile.name` without checking whether those properties exist. What is the main disadvantage?',
     options: [
+      'The browser automatically caches the API response differently',
+      'The API becomes faster because TypeScript skips checking',
       'TypeScript provides less protection against invalid property access',
-      'React stops rendering',
-      'The browser will automatically cache the API',
-      'The API becomes faster'
+      'React automatically stops rendering when nested data is missing'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-49',
     categoryId: 'frontend',
     text: 'You receive data from an external API and do not fully trust its runtime shape. Which TypeScript type is safer than `any` before validation?',
     options: [
-      'object[] only',
-      'never',
-      'unknown',
-      'void'
+      'Use `unknown` until the received value has been properly checked',
+      'Use `never` because external data should not be trusted',
+      'Use `void` because the API response is not yet validated',
+      'Use `object[]` because every API response must contain objects'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-50',
     categoryId: 'frontend',
     text: 'A component prop should be optional and have a default value when omitted. Which TypeScript design expresses this correctly?',
     options: [
-      'Use undefined as the entire component type',
-      'Make every property required',
-      'Make the property optional and provide a default during destructuring',
-      'Use never for the property'
+      'Make every component property required before rendering',
+      'Use `never` for the property to prevent missing values',
+      'Use `undefined` as the entire component prop type',
+      'Make the property optional and provide a default during destructuring'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
 
   {
@@ -620,60 +625,60 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A JavaScript loop modifies an array while iterating over it, causing some elements to be skipped. What is a safer approach?',
     options: [
-      'Convert the array into an object',
-      'Add random delays',
-      'Always use a while(true) loop',
-      'Carefully avoid mutating the array during iteration or create a new filtered array'
+      'Always replace the loop with an infinite while loop',
+      'Avoid mutation during iteration or create a new filtered array',
+      'Add random delays between every array modification',
+      'Convert the array into an object before modifying its values'
     ],
-    correctOptionIndex: 3,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-52',
     categoryId: 'frontend',
     text: 'A developer compares two objects with `===` and expects it to check whether their contents are identical. What actually happens?',
     options: [
-      'Objects are converted to JSON automatically',
-      'Objects are compared by reference',
-      'Objects are compared alphabetically',
-      'Objects are deeply compared automatically'
+      'Objects are compared by reference rather than their contents',
+      'Objects are deeply compared automatically by JavaScript',
+      'Objects are converted to JSON before comparison automatically',
+      'Objects are compared alphabetically based on their properties'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-53',
     categoryId: 'frontend',
     text: 'A function unexpectedly uses an older value of state inside an asynchronous callback. What concept should the developer investigate?',
     options: [
-      'Closures and stale state',
-      'SVG paths',
-      'HTML semantics',
-      'CSS inheritance'
+      'Investigate CSS inheritance and cascading behavior',
+      'Investigate SVG path rendering and coordinate systems',
+      'Investigate closures and the possibility of stale state',
+      'Investigate HTML semantics and browser document structure'
     ],
-    correctOptionIndex: 0,
+    correctOptionIndex: 2,
   },
   {
     id: 'fe-54',
     categoryId: 'frontend',
     text: 'A developer uses `map()` to transform an array but forgets to return anything from the callback. What will the resulting array contain?',
     options: [
-      'A Promise for each element',
-      'The original array only',
-      'Undefined values for each processed element',
-      'The transformed values automatically'
+      'The original values will automatically remain unchanged',
+      'Each array element will contain an undefined result',
+      'Every array element will automatically become a Promise',
+      'The transformed values will automatically be returned by map'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 1,
   },
   {
     id: 'fe-55',
     categoryId: 'frontend',
     text: 'A UI performs an expensive calculation after every keystroke even though the result is only needed when the user stops typing. What JavaScript technique can help?',
     options: [
-      'Deep cloning every frame',
-      'Debouncing',
-      'Infinite loops',
-      'Recursion'
+      'Use recursion to delay the expensive calculation',
+      'Use infinite loops to wait until typing has stopped',
+      'Use deep cloning to reduce the number of calculations',
+      'Use debouncing to wait until typing activity pauses'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 3,
   },
 
   {
@@ -681,10 +686,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page contains a huge image below the fold that is slowing initial loading. What could improve loading performance?',
     options: [
-      'Load it multiple times',
-      'Block the main thread until it loads',
-      'Lazy-load the image when appropriate',
-      'Convert it into a larger PNG'
+      'Convert the image into an even larger PNG file',
+      'Load the same image multiple times during page startup',
+      'Lazy-load the image when it is appropriate to do so',
+      'Block the main thread until the image finishes loading'
     ],
     correctOptionIndex: 2,
   },
@@ -693,34 +698,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React page loads a large chart library even though only one rarely visited route uses it. What optimization could help?',
     options: [
-      'Move the library into CSS',
-      'Import the library twice',
-      'Code splitting/lazy loading the library',
-      'Disable React'
+      'Use code splitting or lazy loading for the chart library',
+      'Import the same chart library multiple times in the app',
+      'Move the chart library into a CSS file for faster loading',
+      'Disable React features so the chart library becomes smaller'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-58',
     categoryId: 'frontend',
     text: 'A web page has a large amount of JavaScript and the first interaction feels delayed. Which browser metric/concept is especially relevant?',
     options: [
-      'Database normalization',
-      'SVG viewBox size only',
-      'Main-thread work and interaction responsiveness',
-      'CSS color contrast only'
+      'Database normalization and relational table structure',
+      'SVG viewBox dimensions and vector coordinate systems',
+      'CSS color contrast and visual accessibility requirements',
+      'Main-thread work and overall interaction responsiveness'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-59',
     categoryId: 'frontend',
     text: 'A component performs a heavy calculation during every render even when its inputs have not changed. What React feature could help when the calculation is genuinely expensive?',
     options: [
-      'useState with random values',
-      'useMemo',
-      'useEffect without dependencies',
-      'useRef for every calculation'
+      'Use useState with changing values to cache calculations',
+      'Use useMemo to reuse an expensive calculated result',
+      'Use useEffect without dependencies for every calculation',
+      'Use useRef for every calculated value regardless of cost'
     ],
     correctOptionIndex: 1,
   },
@@ -729,12 +734,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page renders 10,000 rows and becomes slow because all rows exist in the DOM simultaneously. What technique is appropriate?',
     options: [
-      'Run setState for every row every second',
-      'Virtualization/windowing',
-      'Use larger font sizes',
-      'Add more rows'
+      'Use larger font sizes so fewer rows fit on screen',
+      'Add more rows so the browser can optimize the list',
+      'Use virtualization or windowing to render visible rows',
+      'Run setState repeatedly so each row updates independently'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
 
   {
@@ -742,34 +747,34 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A developer uses `innerHTML` with user-provided content to render comments. What security problem should they consider?',
     options: [
-      'React key collisions',
-      'Potential XSS vulnerabilities',
-      'SVG scaling',
-      'CSS specificity'
+      'Potential cross-site scripting vulnerabilities from unsafe content',
+      'React key collisions caused by repeatedly rendering comments',
+      'CSS specificity problems caused by user-generated content',
+      'SVG scaling problems caused by dynamically inserted content'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-62',
     categoryId: 'frontend',
     text: 'A user submits a form while offline. Which frontend architecture provides a better user experience than simply showing a network error?',
     options: [
-      'Disable all buttons permanently',
-      'Delete the form',
-      'Detect offline state and provide appropriate retry/queue behavior where the application supports it',
-      'Reload the page continuously'
+      'Disable every button permanently whenever the connection disappears',
+      'Delete the submitted form whenever the network request fails',
+      'Reload the entire page repeatedly until the connection returns',
+      'Detect offline state and provide retry or queue behavior when supported'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
   {
     id: 'fe-63',
     categoryId: 'frontend',
     text: 'A button works with a mouse but not when users press Enter or Space with the keyboard. What is the likely issue?',
     options: [
-      'The API is too fast',
-      'The interaction may not be implemented using an appropriate semantic control',
-      'The SVG is too large',
-      'The CSS color is incorrect'
+      'The CSS color prevents keyboard users from activating the button',
+      'The interaction may not use an appropriate semantic control',
+      'The API response is too fast for keyboard interaction to work',
+      'The SVG icon is too large for keyboard events to function'
     ],
     correctOptionIndex: 1,
   },
@@ -778,10 +783,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A page displays a loading spinner for every tiny piece of data, causing the interface to constantly flicker. What is a better UX strategy?',
     options: [
-      'Add more animations to every component',
-      'Make the spinner larger',
-      'Reload the entire page for every request',
-      'Use appropriate loading states such as skeletons or stable placeholders and avoid unnecessary flickering'
+      'Make every loading spinner considerably larger and more visible',
+      'Reload the complete page whenever a small request begins',
+      'Add additional animations around every individual loading spinner',
+      'Use stable loading states such as skeletons and avoid flickering'
     ],
     correctOptionIndex: 3,
   },
@@ -790,12 +795,12 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A React app fetches the same data in five different components, causing duplicate network requests. What architectural improvement would help?',
     options: [
-      'Store the API response in CSS',
-      'Centralize/cache the server state using an appropriate data-fetching strategy',
-      'Disable all components',
-      'Make five more requests'
+      'Make five additional requests so all components stay synchronized',
+      'Store the API response inside CSS variables for shared access',
+      'Centralize and cache server state using a suitable data strategy',
+      'Disable the components that request the same data repeatedly'
     ],
-    correctOptionIndex: 1,
+    correctOptionIndex: 2,
   },
 
   {
@@ -803,22 +808,22 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A navigation menu opens with an animation, but users can click links while the menu is visually disappearing. What should be considered?',
     options: [
-      'Remove semantic HTML',
-      'Increase the animation speed randomly',
-      'Coordinate animation state and interaction state so unavailable elements are not accidentally interactive',
-      'Add more z-index values'
+      'Coordinate animation and interaction state so unavailable elements stay inactive',
+      'Increase the animation speed so users cannot see the disappearing menu',
+      'Add more z-index values to separate the menu from other elements',
+      'Remove semantic HTML so the animation can control all interactions'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 0,
   },
   {
     id: 'fe-67',
     categoryId: 'frontend',
     text: 'A page has a sticky header that covers anchor-linked content when users jump to a section. What CSS technique can help?',
     options: [
-      'Add position: absolute to the body',
-      'Increase z-index to 999999',
-      'Disable scrolling',
-      'scroll-margin-top or an appropriate scroll offset strategy'
+      'Increase the header z-index to an extremely large value',
+      'Disable page scrolling whenever an anchor link is activated',
+      'Add position: absolute to the body element to change scrolling',
+      'Use scroll-margin-top or another appropriate scroll offset strategy'
     ],
     correctOptionIndex: 3,
   },
@@ -827,10 +832,10 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'A component needs to fetch data whenever its `userId` changes. What should be included in the useEffect dependency list?',
     options: [
-      'The entire DOM',
-      'Nothing',
-      'userId',
-      'Only setState'
+      'The complete DOM tree should be included in the dependencies',
+      'Nothing should be included because useEffect detects changes itself',
+      'The userId value should be included in the dependencies',
+      'Only the setState function should be included in the dependencies'
     ],
     correctOptionIndex: 2,
   },
@@ -840,9 +845,9 @@ export const QUESTIONS: Record<string, Question[]> = {
     text: 'A CSS animation works perfectly on desktop but causes discomfort for some users. What is the most responsible implementation?',
     options: [
       'Respect user motion preferences and provide reduced-motion behavior',
-      'Replace it with a JavaScript interval',
-      'Force the animation because consistency is more important',
-      'Increase animation speed'
+      'Increase animation speed so users experience the motion briefly',
+      'Force the animation because consistent behavior is more important',
+      'Replace the CSS animation with a JavaScript interval instead'
     ],
     correctOptionIndex: 0,
   },
@@ -851,14 +856,14 @@ export const QUESTIONS: Record<string, Question[]> = {
     categoryId: 'frontend',
     text: 'You are building a large frontend application where developers repeatedly solve the same problems for buttons, forms, modals, typography, spacing, and animations. What architecture would provide the greatest long-term benefit?',
     options: [
+      'Copy and paste components whenever another page needs them',
       'Allow every page to define completely different UI conventions',
-      'Put every component into one giant file',
-      'A reusable component/design system with shared tokens, patterns, accessibility rules, and documented usage',
-      'Copy and paste components whenever needed'
+      'Put every component into one large file for centralized management',
+      'Build a reusable design system with shared tokens and patterns'
     ],
-    correctOptionIndex: 2,
+    correctOptionIndex: 3,
   },
-  ],
+],
   backend: [
     {
   id: 'be-1',
